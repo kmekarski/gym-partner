@@ -8,13 +8,24 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Binding var showSignInView: Bool
     var body: some View {
-        AuthView()
+        Text("Hello, user!")
+        Button("logout") {
+            Task {
+                do {
+                    try AuthManager.shared.signOut()
+                    showSignInView = true
+                }
+                catch {
+                }
+            }
+        }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(showSignInView: .constant(false))
     }
 }

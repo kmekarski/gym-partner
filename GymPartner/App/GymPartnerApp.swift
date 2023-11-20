@@ -23,7 +23,7 @@ struct GymPartnerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            RootView()
         }
     }
 }

@@ -16,7 +16,7 @@
 		A736665B2B0BE4B600A679FD /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = A736665A2B0BE4B600A679FD /* FirebaseAuthCombine-Community */; };
 		A736665D2B0BE4B600A679FD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A736665C2B0BE4B600A679FD /* FirebaseFirestore */; };
 		A736665F2B0BE4B600A679FD /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A736665E2B0BE4B600A679FD /* FirebaseFirestoreSwift */; };
-		A736666A2B0BE56700A679FD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73666692B0BE56700A679FD /* HomeView.swift */; };
+		A736666A2B0BE56700A679FD /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73666692B0BE56700A679FD /* RootView.swift */; };
 		A736666F2B0BE74F00A679FD /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A736666E2B0BE74F00A679FD /* AuthManager.swift */; };
 		A73666742B0BE77D00A679FD /* AuthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73666732B0BE77D00A679FD /* AuthUser.swift */; };
 		A73666792B0BF94A00A679FD /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = A73666782B0BF94A00A679FD /* GoogleSignIn */; };
@@ -26,6 +26,7 @@
 		A73666832B0BFCB100A679FD /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73666822B0BFCB000A679FD /* Utilities.swift */; };
 		A73666852B0C161200A679FD /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73666842B0C161200A679FD /* AuthViewModel.swift */; };
 		A73666872B0C163E00A679FD /* GoogleSignInResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73666862B0C163E00A679FD /* GoogleSignInResult.swift */; };
+		A73666892B0C16E200A679FD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73666882B0C16E200A679FD /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +34,7 @@
 		A73666432B0BE00D00A679FD /* GymPartnerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymPartnerApp.swift; sourceTree = "<group>"; };
 		A73666472B0BE00D00A679FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A736664A2B0BE00D00A679FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A73666692B0BE56700A679FD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A73666692B0BE56700A679FD /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		A736666E2B0BE74F00A679FD /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		A73666732B0BE77D00A679FD /* AuthUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUser.swift; sourceTree = "<group>"; };
 		A736667C2B0BF98700A679FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -42,6 +43,7 @@
 		A73666822B0BFCB000A679FD /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		A73666842B0C161200A679FD /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		A73666862B0C163E00A679FD /* GoogleSignInResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInResult.swift; sourceTree = "<group>"; };
+		A73666882B0C16E200A679FD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 		A73666612B0BE52C00A679FD /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A73666692B0BE56700A679FD /* RootView.swift */,
 				A73666652B0BE54200A679FD /* Auth */,
 				A73666622B0BE53100A679FD /* Home */,
 			);
@@ -134,7 +137,7 @@
 		A73666632B0BE53500A679FD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A73666692B0BE56700A679FD /* HomeView.swift */,
+				A73666882B0C16E200A679FD /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -295,13 +298,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A73666892B0C16E200A679FD /* HomeView.swift in Sources */,
 				A73666832B0BFCB100A679FD /* Utilities.swift in Sources */,
 				A73666442B0BE00D00A679FD /* GymPartnerApp.swift in Sources */,
 				A73666802B0BFB6E00A679FD /* AuthView.swift in Sources */,
 				A73666852B0C161200A679FD /* AuthViewModel.swift in Sources */,
 				A736666F2B0BE74F00A679FD /* AuthManager.swift in Sources */,
 				A73666742B0BE77D00A679FD /* AuthUser.swift in Sources */,
-				A736666A2B0BE56700A679FD /* HomeView.swift in Sources */,
+				A736666A2B0BE56700A679FD /* RootView.swift in Sources */,
 				A73666872B0C163E00A679FD /* GoogleSignInResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,7 +444,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,7 +475,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
