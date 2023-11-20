@@ -27,6 +27,8 @@
 		A73666852B0C161200A679FD /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73666842B0C161200A679FD /* AuthViewModel.swift */; };
 		A73666872B0C163E00A679FD /* GoogleSignInResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73666862B0C163E00A679FD /* GoogleSignInResult.swift */; };
 		A73666892B0C16E200A679FD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73666882B0C16E200A679FD /* HomeView.swift */; };
+		A736668E2B0C1A5800A679FD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A736668D2B0C1A5800A679FD /* SettingsView.swift */; };
+		A73666902B0C1A6100A679FD /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A736668F2B0C1A6100A679FD /* SettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		A73666842B0C161200A679FD /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		A73666862B0C163E00A679FD /* GoogleSignInResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInResult.swift; sourceTree = "<group>"; };
 		A73666882B0C16E200A679FD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A736668D2B0C1A5800A679FD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A736668F2B0C1A6100A679FD /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,7 @@
 				A73666692B0BE56700A679FD /* RootView.swift */,
 				A73666652B0BE54200A679FD /* Auth */,
 				A73666622B0BE53100A679FD /* Home */,
+				A736668A2B0C1A3800A679FD /* Settings */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -213,6 +218,31 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		A736668A2B0C1A3800A679FD /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A736668C2B0C1A4E00A679FD /* ViewModels */,
+				A736668B2B0C1A4A00A679FD /* Views */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		A736668B2B0C1A4A00A679FD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A736668D2B0C1A5800A679FD /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A736668C2B0C1A4E00A679FD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A736668F2B0C1A6100A679FD /* SettingsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -303,8 +333,10 @@
 				A73666442B0BE00D00A679FD /* GymPartnerApp.swift in Sources */,
 				A73666802B0BFB6E00A679FD /* AuthView.swift in Sources */,
 				A73666852B0C161200A679FD /* AuthViewModel.swift in Sources */,
+				A736668E2B0C1A5800A679FD /* SettingsView.swift in Sources */,
 				A736666F2B0BE74F00A679FD /* AuthManager.swift in Sources */,
 				A73666742B0BE77D00A679FD /* AuthUser.swift in Sources */,
+				A73666902B0C1A6100A679FD /* SettingsViewModel.swift in Sources */,
 				A736666A2B0BE56700A679FD /* RootView.swift in Sources */,
 				A73666872B0C163E00A679FD /* GoogleSignInResult.swift in Sources */,
 			);

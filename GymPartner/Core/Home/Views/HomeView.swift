@@ -9,16 +9,20 @@ import SwiftUI
 
 struct HomeView: View {
     @Binding var showSignInView: Bool
+    @State var showSettings: Bool = false
     var body: some View {
-        Text("Hello, user!")
-        Button("logout") {
-            Task {
-                do {
-                    try AuthManager.shared.signOut()
-                    showSignInView = true
+        ZStack {
+            VStack {
+                Text("Hello, user!")
+                Button("Settings") {
+                    withAnimation(.spring()) {
+                        showSettings = true
+                    }
                 }
-                catch {
-                }
+            }
+            if showSettings {
+                SettingsView(showSignInView: $showSignInView, showSettings: $showSettings)
+                    .transition(.move(edge: .leading))
             }
         }
     }
