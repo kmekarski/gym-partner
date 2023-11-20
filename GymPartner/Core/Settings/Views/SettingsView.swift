@@ -20,18 +20,25 @@ struct SettingsView: View {
             } label: {
                 Image(systemName: "chevron.left")
             }
-            passwordSettings
-            emailSettings
+            if vm.authProviders.contains(.email) {
+                emailSettings
+                passwordSettings
+            }
+            
             Button("Sign out") {
                 Task {
                     do {
                         try vm.signOut()
                         showSignInView = true
+                        showSettings = false
                     } catch {
                         print(error)
                     }
                 }
             }
+        }
+        .onAppear() {
+            vm.loadAuthProviders()
         }
     }
 }
