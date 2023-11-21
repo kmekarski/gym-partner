@@ -10,24 +10,35 @@ import GoogleSignIn
 import GoogleSignInSwift
 
 struct AuthView: View {
-    @StateObject private var vm = AuthViewModel()
+    @EnvironmentObject var vm: AuthViewModel
     @Binding var showSignInView: Bool
     var body: some View {
-        GoogleSignInButton(viewModel: GoogleSignInButtonViewModel(scheme: .dark, style: .wide, state: .normal)) {
-            Task {
-                do {
-                    try await vm.signInGoogle()
-                    showSignInView = false
-                } catch {
-                    print(error)
+        VStack {
+            NavigationLink {
+                SignInEmailView(showSignInView: $showSignInView)
+            } label: {
+                WideAccentButton("Sign in with email")
+            }
+
+            GoogleSignInButton(viewModel: GoogleSignInButtonViewModel(scheme: .dark, style: .wide, state: .normal)) {
+                Task {
+                    do {
+                        try await vm.signInGoogle()
+                        showSignInView = false
+                    } catch {
+                        print(error)
+                    }
                 }
             }
         }
+        .padding()
     }
 }
 
 struct AuthView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthView(showSignInView: .constant(true))
+        NavigationStack {
+            AuthView(showSignInView: .constant(true))
+        }
     }
 }

@@ -8,6 +8,8 @@
 import Foundation
 
 struct GoogleSignInResult {
+    let name: String?
+    let email: String?
     let idToken: String
     let accessToken: String
 }

@@ -8,10 +8,9 @@
 import Foundation
 import FirebaseAuth
 
-final class AuthManager {
+final class AuthManager: ObservableObject {
     
-    static var shared = AuthManager()
-    private init() {}
+    @Published var userData: AuthUser?
     
     func getAuthenticatedUser() throws -> AuthUser {
         guard let user = Auth.auth().currentUser else {
@@ -48,13 +47,17 @@ final class AuthManager {
 extension AuthManager {
     @discardableResult
     func createUser(email: String, password: String) async throws -> AuthUser {
-        let authUser = try await Auth.auth().createUser(withEmail: email, password: password)
-        return AuthUser(user: authUser.user)
+        let authUserResult = try await Auth.auth().createUser(withEmail: email, password: password)
+        let authUser = AuthUser(user: authUserResult.user)
+        self.userData = authUser
+        return authUser
     }
     @discardableResult
     func signIn(email: String, password: String) async throws -> AuthUser {
-        let authUser = try await Auth.auth().signIn(withEmail: email, password: password)
-        return AuthUser(user: authUser.user)
+        let authUserResult = try await Auth.auth().signIn(withEmail: email, password: password)
+        let authUser = AuthUser(user: authUserResult.user)
+        self.userData = authUser
+        return authUser
     }
     
     func resetPassword(email: String) async throws {
@@ -90,7 +93,9 @@ extension AuthManager {
     }
     
     func signInWithCredential(authCredential: AuthCredential) async throws -> AuthUser {
-        let authUser = try await Auth.auth().signIn(with: authCredential)
-        return AuthUser(user: authUser.user)
+        let authUserResult = try await Auth.auth().signIn(with: authCredential)
+        let authUser = AuthUser(user: authUserResult.user)
+        self.userData = authUser
+        return authUser
     }
 }

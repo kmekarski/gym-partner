@@ -9,11 +9,17 @@ import Foundation
 import GoogleSignIn
 import GoogleSignInSwift
 
-@MainActor
 final class AuthViewModel: ObservableObject {
+    var authManager: AuthManager
+    
+    init(authManager: AuthManager) {
+        self.authManager = authManager
+    }
+    
     func signInGoogle() async throws{
-        let helper = GoogleSignInHelper()
+        let helper = await GoogleSignInHelper()
         let tokens = try await helper.signIn()
-        try await AuthManager.shared.signInWithGoogle(tokens: tokens)
+        let authData = try await authManager.signInWithGoogle(tokens: tokens)
+        try UserManager.shared.createNewUser(user: DBUser(auth: authData))
     }
 }

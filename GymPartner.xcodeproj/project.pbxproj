@@ -31,6 +31,16 @@
 		A73666902B0C1A6100A679FD /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A736668F2B0C1A6100A679FD /* SettingsViewModel.swift */; };
 		A73666922B0C211B00A679FD /* GoogleSignInHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73666912B0C211B00A679FD /* GoogleSignInHelper.swift */; };
 		A73666942B0C231F00A679FD /* AuthProviderOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73666932B0C231F00A679FD /* AuthProviderOption.swift */; };
+		A7AE4E9A2B0CD8970092FB33 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4E992B0CD8970092FB33 /* UserManager.swift */; };
+		A7AE4E9D2B0CD8E40092FB33 /* DBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4E9C2B0CD8E40092FB33 /* DBUser.swift */; };
+		A7AE4E9F2B0CE6BD0092FB33 /* SignInEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4E9E2B0CE6BD0092FB33 /* SignInEmailView.swift */; };
+		A7AE4EA22B0CE74F0092FB33 /* WideAccentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EA12B0CE74F0092FB33 /* WideAccentButton.swift */; };
+		A7AE4EA42B0CE7610092FB33 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EA32B0CE7610092FB33 /* Color.swift */; };
+		A7AE4EA62B0CE95B0092FB33 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EA52B0CE95B0092FB33 /* HomeViewModel.swift */; };
+		A7AE4EA82B0CEFEE0092FB33 /* ManagersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EA72B0CEFEE0092FB33 /* ManagersProvider.swift */; };
+		A7AE4EAA2B0CF05F0092FB33 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EA92B0CF05F0092FB33 /* PreviewProvider.swift */; };
+		A7AE4EAC2B0CF4860092FB33 /* SignInEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EAB2B0CF4860092FB33 /* SignInEmailViewModel.swift */; };
+		A7AE4EAE2B0CF5020092FB33 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EAD2B0CF5020092FB33 /* RootViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +62,16 @@
 		A736668F2B0C1A6100A679FD /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		A73666912B0C211B00A679FD /* GoogleSignInHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInHelper.swift; sourceTree = "<group>"; };
 		A73666932B0C231F00A679FD /* AuthProviderOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProviderOption.swift; sourceTree = "<group>"; };
+		A7AE4E992B0CD8970092FB33 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		A7AE4E9C2B0CD8E40092FB33 /* DBUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBUser.swift; sourceTree = "<group>"; };
+		A7AE4E9E2B0CE6BD0092FB33 /* SignInEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailView.swift; sourceTree = "<group>"; };
+		A7AE4EA12B0CE74F0092FB33 /* WideAccentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideAccentButton.swift; sourceTree = "<group>"; };
+		A7AE4EA32B0CE7610092FB33 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		A7AE4EA52B0CE95B0092FB33 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		A7AE4EA72B0CEFEE0092FB33 /* ManagersProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagersProvider.swift; sourceTree = "<group>"; };
+		A7AE4EA92B0CF05F0092FB33 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
+		A7AE4EAB2B0CF4860092FB33 /* SignInEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailViewModel.swift; sourceTree = "<group>"; };
+		A7AE4EAD2B0CF5020092FB33 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +146,7 @@
 		A73666612B0BE52C00A679FD /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				A73666692B0BE56700A679FD /* RootView.swift */,
+				A7AE4EAF2B0CF52E0092FB33 /* Root */,
 				A73666652B0BE54200A679FD /* Auth */,
 				A73666622B0BE53100A679FD /* Home */,
 				A736668A2B0C1A3800A679FD /* Settings */,
@@ -154,6 +174,7 @@
 		A73666642B0BE53900A679FD /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				A7AE4EA52B0CE95B0092FB33 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -170,6 +191,7 @@
 		A73666662B0BE54600A679FD /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A7AE4EA02B0CE6DE0092FB33 /* Buttons */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -178,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				A736667F2B0BFB6E00A679FD /* AuthView.swift */,
+				A7AE4E9E2B0CE6BD0092FB33 /* SignInEmailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				A73666842B0C161200A679FD /* AuthViewModel.swift */,
+				A7AE4EAB2B0CF4860092FB33 /* SignInEmailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -193,6 +217,7 @@
 		A736666B2B0BE5BE00A679FD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A7AE4E9B2B0CD8DC0092FB33 /* DB */,
 				A73666732B0BE77D00A679FD /* AuthUser.swift */,
 				A73666862B0C163E00A679FD /* GoogleSignInResult.swift */,
 				A73666932B0C231F00A679FD /* AuthProviderOption.swift */,
@@ -204,6 +229,8 @@
 			isa = PBXGroup;
 			children = (
 				A736666E2B0BE74F00A679FD /* AuthManager.swift */,
+				A7AE4E992B0CD8970092FB33 /* UserManager.swift */,
+				A7AE4EA72B0CEFEE0092FB33 /* ManagersProvider.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -211,6 +238,8 @@
 		A736666D2B0BE5C900A679FD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A7AE4EA32B0CE7610092FB33 /* Color.swift */,
+				A7AE4EA92B0CF05F0092FB33 /* PreviewProvider.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -245,6 +274,47 @@
 			isa = PBXGroup;
 			children = (
 				A736668F2B0C1A6100A679FD /* SettingsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A7AE4E9B2B0CD8DC0092FB33 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				A7AE4E9C2B0CD8E40092FB33 /* DBUser.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		A7AE4EA02B0CE6DE0092FB33 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				A7AE4EA12B0CE74F0092FB33 /* WideAccentButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		A7AE4EAF2B0CF52E0092FB33 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				A7AE4EB12B0CF53A0092FB33 /* ViewModels */,
+				A7AE4EB02B0CF5340092FB33 /* Views */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		A7AE4EB02B0CF5340092FB33 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A73666692B0BE56700A679FD /* RootView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A7AE4EB12B0CF53A0092FB33 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A7AE4EAD2B0CF5020092FB33 /* RootViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -334,19 +404,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7AE4EA62B0CE95B0092FB33 /* HomeViewModel.swift in Sources */,
 				A73666892B0C16E200A679FD /* HomeView.swift in Sources */,
+				A7AE4EAE2B0CF5020092FB33 /* RootViewModel.swift in Sources */,
 				A73666832B0BFCB100A679FD /* Utilities.swift in Sources */,
+				A7AE4E9A2B0CD8970092FB33 /* UserManager.swift in Sources */,
 				A73666442B0BE00D00A679FD /* GymPartnerApp.swift in Sources */,
 				A73666802B0BFB6E00A679FD /* AuthView.swift in Sources */,
+				A7AE4EA82B0CEFEE0092FB33 /* ManagersProvider.swift in Sources */,
+				A7AE4EAC2B0CF4860092FB33 /* SignInEmailViewModel.swift in Sources */,
 				A73666922B0C211B00A679FD /* GoogleSignInHelper.swift in Sources */,
 				A73666852B0C161200A679FD /* AuthViewModel.swift in Sources */,
 				A736668E2B0C1A5800A679FD /* SettingsView.swift in Sources */,
 				A736666F2B0BE74F00A679FD /* AuthManager.swift in Sources */,
+				A7AE4E9D2B0CD8E40092FB33 /* DBUser.swift in Sources */,
 				A73666742B0BE77D00A679FD /* AuthUser.swift in Sources */,
+				A7AE4E9F2B0CE6BD0092FB33 /* SignInEmailView.swift in Sources */,
 				A73666902B0C1A6100A679FD /* SettingsViewModel.swift in Sources */,
+				A7AE4EA22B0CE74F0092FB33 /* WideAccentButton.swift in Sources */,
 				A73666942B0C231F00A679FD /* AuthProviderOption.swift in Sources */,
 				A736666A2B0BE56700A679FD /* RootView.swift in Sources */,
 				A73666872B0C163E00A679FD /* GoogleSignInResult.swift in Sources */,
+				A7AE4EAA2B0CF05F0092FB33 /* PreviewProvider.swift in Sources */,
+				A7AE4EA42B0CE7610092FB33 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

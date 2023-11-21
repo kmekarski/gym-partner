@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var vm: HomeViewModel
     @Binding var showSignInView: Bool
     @State var showSettings: Bool = false
+    @State var user: AuthUser?
     var body: some View {
         ZStack {
             VStack {
-                Text("Hello, user!")
+                if let user = try? vm.authManager.getAuthenticatedUser() {
+                    Text("hello \(user.name ?? "user")")
+                }
                 Button("Settings") {
                     withAnimation(.spring()) {
                         showSettings = true
@@ -31,5 +35,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(showSignInView: .constant(false))
+            .environmentObject(dev.homeViewModel)
     }
 }

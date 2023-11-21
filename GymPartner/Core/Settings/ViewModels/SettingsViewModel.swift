@@ -7,39 +7,43 @@
 
 import Foundation
 
-@MainActor
 final class SettingsViewModel: ObservableObject {
     
+    var authManager: AuthManager
     @Published var authProviders: [AuthProviderOption] = []
     
+    init(authManager: AuthManager) {
+        self.authManager = authManager
+    }
+    
     func loadAuthProviders() {
-        if let providers = try? AuthManager.shared.getProviders() {
+        if let providers = try? authManager.getProviders() {
             self.authProviders = providers
         }
     }
     
     func signOut() throws {
-        try AuthManager.shared.signOut()
+        try authManager.signOut()
     }
     
     func resetPassword() async throws {
-        let authUser = try AuthManager.shared.getAuthenticatedUser()
+        let authUser = try authManager.getAuthenticatedUser()
         
         guard let email = authUser.email else {
             throw URLError(.fileDoesNotExist)
         }
         
-        try await AuthManager.shared.resetPassword(email: email)
+        try await authManager.resetPassword(email: email)
     }
     
     func updateEmail() async throws {
         let email = "hello123@gmail.com"
-        try await AuthManager.shared.updateEmail(newEmail: email)
+        try await authManager.updateEmail(newEmail: email)
     }
     
     func updatePassword() async throws {
         let password = "asdfghjkl"
-        try await AuthManager.shared.updatePassword(newPassword: password)
+        try await authManager.updatePassword(newPassword: password)
     }
 
 }

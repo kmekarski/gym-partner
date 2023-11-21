@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @StateObject private var vm = SettingsViewModel()
+    @EnvironmentObject var vm: SettingsViewModel
     @Binding var showSignInView: Bool
     @Binding var showSettings: Bool
     var body: some View {
