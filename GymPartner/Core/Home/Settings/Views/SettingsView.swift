@@ -10,16 +10,8 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject var vm: SettingsViewModel
     @Binding var showSignInView: Bool
-    @Binding var showSettings: Bool
     var body: some View {
         List {
-            Button {
-                withAnimation(.spring()) {
-                    showSettings = false
-                }
-            } label: {
-                Image(systemName: "chevron.left")
-            }
             if vm.authProviders.contains(.email) {
                 emailSettings
                 passwordSettings
@@ -30,7 +22,6 @@ struct SettingsView: View {
                     do {
                         try vm.signOut()
                         showSignInView = true
-                        showSettings = false
                     } catch {
                         print(error)
                     }
@@ -46,7 +37,7 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SettingsView(showSignInView: .constant(false), showSettings: .constant(true))
+            SettingsView(showSignInView: .constant(false))
         }
     }
 }
