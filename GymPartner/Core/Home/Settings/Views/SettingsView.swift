@@ -8,11 +8,27 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @EnvironmentObject var vm: SettingsViewModel
+    @EnvironmentObject var settingsVM: SettingsViewModel
+    @EnvironmentObject var homeVM: HomeViewModel
+    @EnvironmentObject var authVM: AuthViewModel
     @Binding var authViewType: AuthViewType
+    @State var user: DBUser?
+    
     var body: some View {
         List {
-            if vm.authProviders.contains(.email) {
+            if let id = user?.userId{
+                Text("user ID: \(id)")
+            }
+            if let username = user?.username{
+                Text("username: \(username)")
+            }
+            if let email = user?.email{
+                Text("email: \(email)")
+            }
+            if let photoUrl = user?.photoUrl {
+                AsyncImage(url: URL(string: photoUrl))
+            }
+            if settingsVM.authProviders.contains(.email) {
                 emailSettings
                 passwordSettings
             }
@@ -20,7 +36,7 @@ struct SettingsView: View {
             Button("Sign out") {
                 Task {
                     do {
-                        try vm.signOut()
+                        try settingsVM.signOut()
                         authViewType = .signIn
                     } catch {
                         print(error)
@@ -29,7 +45,14 @@ struct SettingsView: View {
             }
         }
         .onAppear() {
-            vm.loadAuthProviders()
+            settingsVM.loadAuthProviders()
+            Task {
+                do {
+                    user = try await authVM.getAuthenticatedUser()
+                } catch {
+                    print(error)
+                }
+            }
         }
     }
 }
@@ -48,7 +71,7 @@ extension SettingsView {
             Button("Reset password") {
                 Task {
                     do {
-                        try await vm.resetPassword()
+                        try await settingsVM.resetPassword()
                     } catch {
                         print(error)
                     }
@@ -57,7 +80,7 @@ extension SettingsView {
             Button("Update password") {
                 Task {
                     do {
-                        try await vm.updatePassword()
+                        try await settingsVM.updatePassword()
                     } catch {
                         print(error)
                     }
@@ -71,7 +94,7 @@ extension SettingsView {
             Button("Update email") {
                 Task {
                     do {
-                        try await vm.updateEmail()
+                        try await settingsVM.updateEmail()
                     } catch {
                         print(error)
                     }

@@ -19,18 +19,22 @@ final class DeveloperPreview {
     
     let authManager: AuthManager
     let userManager: UserManager
+    let exerciseManager: ExerciseManager
     let authViewModel: AuthViewModel
     let rootViewModel: RootViewModel
     let homeViewModel: HomeViewModel
     let settingsViewModel: SettingsViewModel
+    let createPlanViewModel: CreatePlanViewModel
     
     private init() {
         authManager = ManagersProvider.provideAuthManager()
         userManager = ManagersProvider.provideUserManager()
+        exerciseManager = ManagersProvider.provideExerciseManager()
         rootViewModel = RootViewModel(authManager: authManager)
         homeViewModel = HomeViewModel(authManager: authManager)
         authViewModel = AuthViewModel(authManager: authManager, userManager: userManager)
         settingsViewModel = SettingsViewModel(authManager: authManager)
+        createPlanViewModel = CreatePlanViewModel(exerciseManager: exerciseManager)
     }
     
 }

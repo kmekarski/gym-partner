@@ -22,51 +22,22 @@ struct SignInView: View {
                 .fontWeight(.semibold)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, 32)
-            VStack(spacing: 24) {
-                AuthTextField(title: "Email", text: $signInVM.email, iconName: "at")
-                AuthTextField(title: "Password", text: $signInVM.password, iconName: "lock", secure: true)
-                Button {
-                    
-                } label: {
-                    Text("Forgot password?")
-                        .foregroundColor(.theme.accent)
-                }
-                Button {
-                    Task {
-                        do {
-                            try await authVM.signInEmail(
-                                email: signInVM.email,
-                                password: signInVM.password)
-                            authViewType = .none
-                        } catch {
-                            print(error)
-                        }
-                    }
-                } label: {
-                    WideAccentButton("Sign in")
-                }
-            }
+            
+            signInForm
+            
             Text("or:")
                 .foregroundColor(.theme.secondaryText)
                 .padding(.vertical)
 
-            GoogleSignInButton(scheme: .light, style: .wide, state: .normal) {
-                Task {
-                    do {
-                        try await authVM.signInGoogle()
-                        authViewType = .none
-                    } catch {
-                        print(error)
-                    }
-                }
-            }
-            .padding(.bottom, 24)
+            googleSignInButton
+            
             HStack {
                 Text("New to GymPartner?")
                     .font(.headline)
                     .foregroundColor(.theme.secondaryText)
                 goToSignUpButton
             }
+            
             Spacer()
         }
         .padding(32)
@@ -81,6 +52,48 @@ struct SignInView_Previews: PreviewProvider {
 }
 
 extension SignInView {
+    
+    private var signInForm: some View {
+        VStack(spacing: 24) {
+            AuthTextField(title: "Email", text: $signInVM.email, iconName: "at")
+            AuthTextField(title: "Password", text: $signInVM.password, iconName: "lock", secure: true)
+            Button {
+                
+            } label: {
+                Text("Forgot password?")
+                    .foregroundColor(.theme.accent)
+            }
+            Button {
+                Task {
+                    do {
+                        try await authVM.signInEmail(
+                            email: signInVM.email,
+                            password: signInVM.password)
+                        authViewType = .none
+                    } catch {
+                        print(error)
+                    }
+                }
+            } label: {
+                WideAccentButton("Sign in")
+            }
+        }
+    }
+    
+    private var googleSignInButton: some View {
+        GoogleSignInButton(scheme: .light, style: .wide, state: .normal) {
+            Task {
+                do {
+                    try await authVM.signInGoogle()
+                    authViewType = .none
+                } catch {
+                    print(error)
+                }
+            }
+        }
+        .padding(.bottom, 24)
+    }
+    
     private var goToSignUpButton: some View {
         Button {
             withAnimation(.spring()) {

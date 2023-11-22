@@ -24,49 +24,22 @@ struct SignUpView: View {
                 .fontWeight(.semibold)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom)
-            GoogleSignInButton(scheme: .light, style: .wide, state: .normal) {
-                Task {
-                    do {
-                        try await authVM.signInGoogle()
-                        authViewType = .none
-                    } catch {
-                        print(error)
-                    }
-                }
-            }
+            
+            googleSignInButton
+            
             Text("or sign up using email:")
                 .foregroundColor(.theme.secondaryText)
                 .padding(.vertical, 24)
-            VStack(spacing: 24) {
-                AuthTextField(title: "Username", text: $signUpVM.username, iconName: "person")
-                AuthTextField(title: "Email", text: $signUpVM.email, iconName: "at")
-                AuthTextField(title: "Password", text: $signUpVM.password, iconName: "lock", secure: true)
-                AuthTextField(title: "Repeat password", text: $signUpVM.password2, iconName: "lock", secure: true)
-                Button {
-                    Task {
-                        do {
-                            try await authVM.signUpEmail(
-                                username: signUpVM.username,
-                                email: signUpVM.email,
-                                password: signUpVM.password)
-                            authViewType = .none
-                        } catch {
-                            print(error)
-                        }
-                    }
-                } label: {
-                    WideAccentButton("Sign up")
-                        .padding(.top, 8)
-                }
-            }
             
-            .padding(.bottom, 24)
+            signUpForm
+            
             HStack {
                 Text("Already have an acount?")
                     .font(.headline)
                     .foregroundColor(.theme.secondaryText)
                 goToSignInButton
             }
+            
             Spacer()
         }
         .padding(32)
@@ -81,6 +54,45 @@ struct SignUpView_Previews: PreviewProvider {
 }
 
 extension SignUpView {
+    private var signUpForm: some View {
+        VStack(spacing: 24) {
+            AuthTextField(title: "Username", text: $signUpVM.username, iconName: "person")
+            AuthTextField(title: "Email", text: $signUpVM.email, iconName: "at")
+            AuthTextField(title: "Password", text: $signUpVM.password, iconName: "lock", secure: true)
+            AuthTextField(title: "Repeat password", text: $signUpVM.password2, iconName: "lock", secure: true)
+            Button {
+                Task {
+                    do {
+                        try await authVM.signUpEmail(
+                            username: signUpVM.username,
+                            email: signUpVM.email,
+                            password: signUpVM.password)
+                        authViewType = .none
+                    } catch {
+                        print(error)
+                    }
+                }
+            } label: {
+                WideAccentButton("Sign up")
+                    .padding(.top, 8)
+            }
+        }
+        .padding(.bottom, 24)
+    }
+    
+    private var googleSignInButton: some View {
+        GoogleSignInButton(scheme: .light, style: .wide, state: .normal) {
+            Task {
+                do {
+                    try await authVM.signInGoogle()
+                    authViewType = .none
+                } catch {
+                    print(error)
+                }
+            }
+        }
+    }
+    
     private var goToSignInButton: some View {
         Button {
             withAnimation(.spring()) {

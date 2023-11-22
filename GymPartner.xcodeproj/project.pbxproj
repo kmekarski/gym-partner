@@ -47,6 +47,11 @@
 		A7AE4EC22B0E43E10092FB33 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EC12B0E43E10092FB33 /* AuthTextField.swift */; };
 		A7AE4EC42B0E69BF0092FB33 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EC32B0E69BF0092FB33 /* SignUpViewModel.swift */; };
 		A7AE4EC82B0E6A050092FB33 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EC72B0E6A050092FB33 /* SignInViewModel.swift */; };
+		A7AE4ECD2B0E83E10092FB33 /* CreatePlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4ECC2B0E83E10092FB33 /* CreatePlanView.swift */; };
+		A7AE4ECF2B0E846E0092FB33 /* CreatePlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4ECE2B0E846E0092FB33 /* CreatePlanViewModel.swift */; };
+		A7AE4ED12B0E88C30092FB33 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4ED02B0E88C30092FB33 /* Exercise.swift */; };
+		A7AE4ED32B0E88E60092FB33 /* BodyPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4ED22B0E88E60092FB33 /* BodyPart.swift */; };
+		A7AE4ED52B0E93D60092FB33 /* ExerciseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4ED42B0E93D60092FB33 /* ExerciseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +89,11 @@
 		A7AE4EC12B0E43E10092FB33 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		A7AE4EC32B0E69BF0092FB33 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		A7AE4EC72B0E6A050092FB33 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		A7AE4ECC2B0E83E10092FB33 /* CreatePlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanView.swift; sourceTree = "<group>"; };
+		A7AE4ECE2B0E846E0092FB33 /* CreatePlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanViewModel.swift; sourceTree = "<group>"; };
+		A7AE4ED02B0E88C30092FB33 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		A7AE4ED22B0E88E60092FB33 /* BodyPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPart.swift; sourceTree = "<group>"; };
+		A7AE4ED42B0E93D60092FB33 /* ExerciseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +168,7 @@
 		A73666612B0BE52C00A679FD /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A7AE4EC92B0E81B80092FB33 /* CreatePlan */,
 				A7AE4EAF2B0CF52E0092FB33 /* Root */,
 				A73666652B0BE54200A679FD /* Auth */,
 				A73666622B0BE53100A679FD /* Home */,
@@ -239,6 +250,8 @@
 				A73666732B0BE77D00A679FD /* AuthUser.swift */,
 				A73666862B0C163E00A679FD /* GoogleSignInResult.swift */,
 				A73666932B0C231F00A679FD /* AuthProviderOption.swift */,
+				A7AE4ED02B0E88C30092FB33 /* Exercise.swift */,
+				A7AE4ED22B0E88E60092FB33 /* BodyPart.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -249,6 +262,7 @@
 				A736666E2B0BE74F00A679FD /* AuthManager.swift */,
 				A7AE4E992B0CD8970092FB33 /* UserManager.swift */,
 				A7AE4EA72B0CEFEE0092FB33 /* ManagersProvider.swift */,
+				A7AE4ED42B0E93D60092FB33 /* ExerciseManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -369,6 +383,31 @@
 			path = TextFields;
 			sourceTree = "<group>";
 		};
+		A7AE4EC92B0E81B80092FB33 /* CreatePlan */ = {
+			isa = PBXGroup;
+			children = (
+				A7AE4ECB2B0E81C40092FB33 /* ViewModels */,
+				A7AE4ECA2B0E81BF0092FB33 /* Views */,
+			);
+			path = CreatePlan;
+			sourceTree = "<group>";
+		};
+		A7AE4ECA2B0E81BF0092FB33 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A7AE4ECC2B0E83E10092FB33 /* CreatePlanView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A7AE4ECB2B0E81C40092FB33 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A7AE4ECE2B0E846E0092FB33 /* CreatePlanViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -455,6 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7AE4EA62B0CE95B0092FB33 /* HomeViewModel.swift in Sources */,
+				A7AE4ED12B0E88C30092FB33 /* Exercise.swift in Sources */,
 				A73666892B0C16E200A679FD /* HomeView.swift in Sources */,
 				A7AE4EAE2B0CF5020092FB33 /* RootViewModel.swift in Sources */,
 				A73666832B0BFCB100A679FD /* Utilities.swift in Sources */,
@@ -465,8 +505,10 @@
 				A7AE4EA82B0CEFEE0092FB33 /* ManagersProvider.swift in Sources */,
 				A7AE4EC22B0E43E10092FB33 /* AuthTextField.swift in Sources */,
 				A73666922B0C211B00A679FD /* GoogleSignInHelper.swift in Sources */,
+				A7AE4ECD2B0E83E10092FB33 /* CreatePlanView.swift in Sources */,
 				A73666852B0C161200A679FD /* AuthViewModel.swift in Sources */,
 				A7AE4EB32B0E3BEB0092FB33 /* MyPlansView.swift in Sources */,
+				A7AE4ED52B0E93D60092FB33 /* ExerciseManager.swift in Sources */,
 				A7AE4EC82B0E6A050092FB33 /* SignInViewModel.swift in Sources */,
 				A736668E2B0C1A5800A679FD /* SettingsView.swift in Sources */,
 				A736666F2B0BE74F00A679FD /* AuthManager.swift in Sources */,
@@ -476,6 +518,8 @@
 				A73666742B0BE77D00A679FD /* AuthUser.swift in Sources */,
 				A7AE4EBF2B0E41900092FB33 /* SignInView.swift in Sources */,
 				A7AE4EBB2B0E3CF50092FB33 /* HistoryView.swift in Sources */,
+				A7AE4ECF2B0E846E0092FB33 /* CreatePlanViewModel.swift in Sources */,
+				A7AE4ED32B0E88E60092FB33 /* BodyPart.swift in Sources */,
 				A73666902B0C1A6100A679FD /* SettingsViewModel.swift in Sources */,
 				A7AE4EA22B0CE74F0092FB33 /* WideAccentButton.swift in Sources */,
 				A73666942B0C231F00A679FD /* AuthProviderOption.swift in Sources */,

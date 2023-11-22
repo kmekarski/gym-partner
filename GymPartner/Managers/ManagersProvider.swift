@@ -16,4 +16,8 @@ final class ManagersProvider {
     static func provideUserManager() -> UserManager {
         return UserManager()
     }
+    
+    static func provideExerciseManager() -> ExerciseManager {
+        return ExerciseManager()
+    }
 }

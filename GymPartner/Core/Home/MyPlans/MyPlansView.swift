@@ -12,26 +12,25 @@ struct MyPlansView: View {
     @EnvironmentObject var authVM: AuthViewModel
     @State var user: DBUser?
     var body: some View {
-        VStack {
-            if let user = user, let name = user.username{
-                Text("hello \(name)")
-            }
-        }
-        .onAppear() {
-            Task {
-                do {
-                    user = try await authVM.getAuthenticatedUser()
-                } catch {
-                    print(error)
+        NavigationStack {
+            VStack {
+                Text("My plans")
+                NavigationLink {
+                    CreatePlanView()
+                } label: {
+                    WideAccentButton("+")
                 }
             }
+            .padding()
         }
     }
 }
 
 struct MyPlansView_Previews: PreviewProvider {
     static var previews: some View {
-        MyPlansView()
-            .environmentObject(dev.homeViewModel)
+        NavigationStack {
+            MyPlansView()
+                .environmentObject(dev.homeViewModel)
+        }
     }
 }
