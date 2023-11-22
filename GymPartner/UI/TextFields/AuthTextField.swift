@@ -18,7 +18,7 @@ struct AuthTextField: View {
     
     var body: some View {
         ZStack(alignment: .trailing) {
-            VStack {
+            VStack(spacing: 2) {
                 HStack {
                     icon
                     if secure {

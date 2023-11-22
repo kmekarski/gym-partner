@@ -52,6 +52,8 @@
 		A7AE4ED12B0E88C30092FB33 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4ED02B0E88C30092FB33 /* Exercise.swift */; };
 		A7AE4ED32B0E88E60092FB33 /* BodyPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4ED22B0E88E60092FB33 /* BodyPart.swift */; };
 		A7AE4ED52B0E93D60092FB33 /* ExerciseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4ED42B0E93D60092FB33 /* ExerciseManager.swift */; };
+		A7AE4ED82B0EA5260092FB33 /* ModalWithTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4ED72B0EA5260092FB33 /* ModalWithTextField.swift */; };
+		A7AE4EDA2B0EAA810092FB33 /* AccentUnderlineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4ED92B0EAA810092FB33 /* AccentUnderlineTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +96,8 @@
 		A7AE4ED02B0E88C30092FB33 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		A7AE4ED22B0E88E60092FB33 /* BodyPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPart.swift; sourceTree = "<group>"; };
 		A7AE4ED42B0E93D60092FB33 /* ExerciseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseManager.swift; sourceTree = "<group>"; };
+		A7AE4ED72B0EA5260092FB33 /* ModalWithTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalWithTextField.swift; sourceTree = "<group>"; };
+		A7AE4ED92B0EAA810092FB33 /* AccentUnderlineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentUnderlineTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +221,7 @@
 		A73666662B0BE54600A679FD /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A7AE4ED62B0EA5180092FB33 /* Modals */,
 				A7AE4EC02B0E43D30092FB33 /* TextFields */,
 				A7AE4EA02B0CE6DE0092FB33 /* Buttons */,
 			);
@@ -379,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				A7AE4EC12B0E43E10092FB33 /* AuthTextField.swift */,
+				A7AE4ED92B0EAA810092FB33 /* AccentUnderlineTextField.swift */,
 			);
 			path = TextFields;
 			sourceTree = "<group>";
@@ -406,6 +412,14 @@
 				A7AE4ECE2B0E846E0092FB33 /* CreatePlanViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A7AE4ED62B0EA5180092FB33 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				A7AE4ED72B0EA5260092FB33 /* ModalWithTextField.swift */,
+			);
+			path = Modals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -515,6 +529,7 @@
 				A7AE4EC42B0E69BF0092FB33 /* SignUpViewModel.swift in Sources */,
 				A7AE4E9D2B0CD8E40092FB33 /* DBUser.swift in Sources */,
 				A7AE4EBD2B0E41150092FB33 /* SignUpView.swift in Sources */,
+				A7AE4EDA2B0EAA810092FB33 /* AccentUnderlineTextField.swift in Sources */,
 				A73666742B0BE77D00A679FD /* AuthUser.swift in Sources */,
 				A7AE4EBF2B0E41900092FB33 /* SignInView.swift in Sources */,
 				A7AE4EBB2B0E3CF50092FB33 /* HistoryView.swift in Sources */,
@@ -527,6 +542,7 @@
 				A73666872B0C163E00A679FD /* GoogleSignInResult.swift in Sources */,
 				A7AE4EAA2B0CF05F0092FB33 /* PreviewProvider.swift in Sources */,
 				A7AE4EA42B0CE7610092FB33 /* Color.swift in Sources */,
+				A7AE4ED82B0EA5260092FB33 /* ModalWithTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

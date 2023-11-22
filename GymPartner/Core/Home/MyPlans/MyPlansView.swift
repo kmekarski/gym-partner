@@ -7,30 +7,46 @@
 
 import SwiftUI
 
+enum PlanCreationState {
+    case menu
+    case initial
+}
+
 struct MyPlansView: View {
     @EnvironmentObject var homeVM: HomeViewModel
     @EnvironmentObject var authVM: AuthViewModel
+    @EnvironmentObject var createPlanVM: CreatePlanViewModel
     @State var user: DBUser?
+    @State var showNewPlanModal: Bool = false
     var body: some View {
-        NavigationStack {
-            VStack {
-                Text("My plans")
-                NavigationLink {
-                    CreatePlanView()
-                } label: {
-                    WideAccentButton("+")
+        ZStack {
+            switch homeVM.planCreationState {
+            case .menu:
+                VStack {
+                    Text("My plans")
+                    Button {
+                        showNewPlanModal = true
+                    } label: {
+                        WideAccentButton("+")
+                    }
                 }
+                .padding()
+            case .initial:
+                CreatePlanView()
             }
-            .padding()
+            
+            ModalWithTextField(title: "New plan", text: $createPlanVM.newPlanName, isShowing: $showNewPlanModal) {
+                homeVM.planCreationState = .initial
+            }
         }
     }
 }
 
 struct MyPlansView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationStack {
-            MyPlansView()
-                .environmentObject(dev.homeViewModel)
-        }
+        MyPlansView()
+            .environmentObject(dev.homeViewModel)
+            .environmentObject(dev.authViewModel)
+            .environmentObject(dev.createPlanViewModel)
     }
 }

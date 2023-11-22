@@ -9,9 +9,16 @@ import SwiftUI
 
 struct CreatePlanView: View {
     @EnvironmentObject var createPlanVM: CreatePlanViewModel
+    @EnvironmentObject var homeVM: HomeViewModel
     var body: some View {
         VStack {
-            Text("Create plan")
+            HStack {
+                Text("Create plan")
+                Button("Back") {
+                    homeVM.planCreationState = .menu
+                }
+            }
+            
             TextField("Exercise name or body part", text: $createPlanVM.exerciseQuery)
             Picker("Body part", selection: $createPlanVM.selectedBodyPart) {
                 ForEach(BodyPart.allCases, id: \.self) { bodyPart in
@@ -30,7 +37,10 @@ struct CreatePlanView: View {
 
 struct CreatePlanView_Previews: PreviewProvider {
     static var previews: some View {
-        CreatePlanView()
-            .environmentObject(dev.createPlanViewModel)
+        NavigationStack {
+            CreatePlanView()
+                .environmentObject(dev.homeViewModel)
+                .environmentObject(dev.createPlanViewModel)
+        }
     }
 }

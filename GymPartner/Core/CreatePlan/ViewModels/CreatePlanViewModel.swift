@@ -9,10 +9,13 @@ import Foundation
 import Combine
 
 final class CreatePlanViewModel: ObservableObject {
+    
     @Published var filteredExercises: [Exercise] = []
     @Published var allBodyParts: [BodyPart] = BodyPart.allCases
     @Published var selectedBodyPart: BodyPart = .none
     @Published var exerciseQuery: String = ""
+    
+    @Published var newPlanName: String = ""
     
     private var exerciseManager: ExerciseManager
     private var cancellables = Set<AnyCancellable>()
