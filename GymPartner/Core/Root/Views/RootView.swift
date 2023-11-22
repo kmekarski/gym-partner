@@ -9,19 +9,19 @@ import SwiftUI
 
 struct RootView: View {
     @EnvironmentObject var vm: RootViewModel
-    @State var showSignInView: Bool = false
+    @State var showAuthView: Bool = false
 
     var body: some View {
         ZStack {
-            if !showSignInView {
-                HomeView(showSignInView: $showSignInView)
+            if !showAuthView {
+                HomeView(showAuthView: $showAuthView)
             } else {
-                AuthView(showSignInView: $showSignInView)
+                AuthView(showAuthView: $showAuthView)
             }
         }
         .onAppear {
             let authUser = try? vm.authManager.getAuthenticatedUser()
-            self.showSignInView = authUser == nil
+            self.showAuthView = authUser == nil
         }
     }
 }
