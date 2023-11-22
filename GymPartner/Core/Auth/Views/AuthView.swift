@@ -12,12 +12,12 @@ import GoogleSignInSwift
 enum AuthViewType {
     case signIn
     case signUp
+    case none
 }
 
 struct AuthView: View {
     @EnvironmentObject var vm: AuthViewModel
-    @Binding var showAuthView: Bool
-    @State var authViewType: AuthViewType = .signIn
+    @Binding var authViewType: AuthViewType
     var body: some View {
         ZStack {
             switch authViewType {
@@ -26,7 +26,9 @@ struct AuthView: View {
                     .transition(.move(edge: .leading))
             case .signUp:
                 SignUpView(authViewType: $authViewType)
-                    .transition(.move(edge: .leading))
+                    .transition(.move(edge: .trailing))
+            case .none:
+                EmptyView()
             }
         }
     }
@@ -34,7 +36,7 @@ struct AuthView: View {
 
 struct AuthView_Previews: PreviewProvider {
     static var previews: some View {
-            AuthView(showAuthView: .constant(true))
+        AuthView(authViewType: .constant(.signIn))
                 .environmentObject(dev.authViewModel)
     }
 }

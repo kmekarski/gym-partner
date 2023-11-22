@@ -8,12 +8,22 @@
 import SwiftUI
 
 struct MyPlansView: View {
-    @EnvironmentObject var vm: HomeViewModel
-    @State var user: AuthUser?
+    @EnvironmentObject var homeVM: HomeViewModel
+    @EnvironmentObject var authVM: AuthViewModel
+    @State var user: DBUser?
     var body: some View {
         VStack {
-            if let user = try? vm.authManager.getAuthenticatedUser() {
-                Text("hello \(user.name ?? "user")")
+            if let user = user, let name = user.username{
+                Text("hello \(name)")
+            }
+        }
+        .onAppear() {
+            Task {
+                do {
+                    user = try await authVM.getAuthenticatedUser()
+                } catch {
+                    print(error)
+                }
             }
         }
     }

@@ -6,20 +6,77 @@
 //
 
 import SwiftUI
+import GoogleSignIn
+import GoogleSignInSwift
 
 struct SignUpView: View {
+    @EnvironmentObject var authVM: AuthViewModel
+    @StateObject var signUpVM = SignUpViewModel()
     @Binding var authViewType: AuthViewType
+    @State var username: String = ""
+    @State var email: String = ""
+    @State var password: String = ""
+    @State var password2: String = ""
     var body: some View {
         VStack {
             Text("Sign Up")
-            goToSignInButton
+                .font(.title)
+                .fontWeight(.semibold)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.bottom)
+            GoogleSignInButton(scheme: .light, style: .wide, state: .normal) {
+                Task {
+                    do {
+                        try await authVM.signInGoogle()
+                        authViewType = .none
+                    } catch {
+                        print(error)
+                    }
+                }
+            }
+            Text("or sign up using email:")
+                .foregroundColor(.theme.secondaryText)
+                .padding(.vertical, 24)
+            VStack(spacing: 24) {
+                AuthTextField(title: "Username", text: $signUpVM.username, iconName: "person")
+                AuthTextField(title: "Email", text: $signUpVM.email, iconName: "at")
+                AuthTextField(title: "Password", text: $signUpVM.password, iconName: "lock", secure: true)
+                AuthTextField(title: "Repeat password", text: $signUpVM.password2, iconName: "lock", secure: true)
+                Button {
+                    Task {
+                        do {
+                            try await authVM.signUpEmail(
+                                username: signUpVM.username,
+                                email: signUpVM.email,
+                                password: signUpVM.password)
+                            authViewType = .none
+                        } catch {
+                            print(error)
+                        }
+                    }
+                } label: {
+                    WideAccentButton("Sign up")
+                        .padding(.top, 8)
+                }
+            }
+            
+            .padding(.bottom, 24)
+            HStack {
+                Text("Already have an acount?")
+                    .font(.headline)
+                    .foregroundColor(.theme.secondaryText)
+                goToSignInButton
+            }
+            Spacer()
         }
+        .padding(32)
     }
 }
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
         SignUpView(authViewType: .constant(.signUp))
+            .environmentObject(dev.authViewModel)
     }
 }
 

@@ -8,32 +8,23 @@
 import SwiftUI
 import FirebaseCore
 
-class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    FirebaseApp.configure()
-
-    return true
-  }
-}
-
 @main
 struct GymPartnerApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     let authManager: AuthManager
+    let userManager: UserManager
     let authViewModel: AuthViewModel
-    let signInEmailViewModel: SignInEmailViewModel
     let rootViewModel: RootViewModel
     let homeViewModel: HomeViewModel
     let settingsViewModel: SettingsViewModel
     
-     init() {
+    init() {
+        FirebaseApp.configure()
         authManager = ManagersProvider.provideAuthManager()
+        userManager = ManagersProvider.provideUserManager()
         rootViewModel = RootViewModel(authManager: authManager)
         homeViewModel = HomeViewModel(authManager: authManager)
-        authViewModel = AuthViewModel(authManager: authManager)
-        signInEmailViewModel = SignInEmailViewModel(authManager: authManager)
+        authViewModel = AuthViewModel(authManager: authManager, userManager: userManager)
         settingsViewModel = SettingsViewModel(authManager: authManager)
     }
     
@@ -43,7 +34,6 @@ struct GymPartnerApp: App {
                 .environmentObject(homeViewModel)
                 .environmentObject(rootViewModel)
                 .environmentObject(authViewModel)
-                .environmentObject(signInEmailViewModel)
                 .environmentObject(settingsViewModel)
         }
     }

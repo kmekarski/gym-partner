@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @Binding var showAuthView: Bool
+    @Binding var authViewType: AuthViewType
     var body: some View {
         TabView {
             MyPlansView()
@@ -26,7 +26,7 @@ struct HomeView: View {
                     Image(systemName: "chart.bar.doc.horizontal")
                     Text("Workout history")
                 }
-            SettingsView(showAuthView: $showAuthView)
+            SettingsView(authViewType: $authViewType)
                 .tabItem {
                     Image(systemName: "gearshape")
                     Text("Settings")
@@ -37,7 +37,7 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(showAuthView: .constant(false))
+        HomeView(authViewType: .constant(.none))
             .environmentObject(dev.homeViewModel)
             .environmentObject(dev.settingsViewModel)
     }

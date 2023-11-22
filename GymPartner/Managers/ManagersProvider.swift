@@ -13,4 +13,7 @@ final class ManagersProvider {
         return AuthManager()
     }
     
+    static func provideUserManager() -> UserManager {
+        return UserManager()
+    }
 }

@@ -15,12 +15,12 @@ struct WideAccentButton: View {
     }
     var body: some View {
         Text(text)
-            .font(.system(size: 18, weight: .semibold))
+            .font(.system(size: 18, weight: .bold))
             .foregroundColor(.white)
             .frame(maxWidth: .infinity)
-            .padding(.vertical)
+            .padding(.vertical, 14)
             .background(Color.theme.accent)
-            .cornerRadius(10)
+            .cornerRadius(20)
     }
 }
 

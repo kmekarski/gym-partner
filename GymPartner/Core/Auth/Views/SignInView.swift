@@ -6,20 +6,77 @@
 //
 
 import SwiftUI
+import GoogleSignIn
+import GoogleSignInSwift
 
 struct SignInView: View {
+    @EnvironmentObject var authVM: AuthViewModel
+    @StateObject var signInVM = SignInViewModel()
     @Binding var authViewType: AuthViewType
+    @State var email: String = ""
+    @State var password: String = ""
     var body: some View {
         VStack {
             Text("Sign In")
-            goToSignUpButton
+                .font(.title)
+                .fontWeight(.semibold)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.bottom, 32)
+            VStack(spacing: 24) {
+                AuthTextField(title: "Email", text: $signInVM.email, iconName: "at")
+                AuthTextField(title: "Password", text: $signInVM.password, iconName: "lock", secure: true)
+                Button {
+                    
+                } label: {
+                    Text("Forgot password?")
+                        .foregroundColor(.theme.accent)
+                }
+                Button {
+                    Task {
+                        do {
+                            try await authVM.signInEmail(
+                                email: signInVM.email,
+                                password: signInVM.password)
+                            authViewType = .none
+                        } catch {
+                            print(error)
+                        }
+                    }
+                } label: {
+                    WideAccentButton("Sign in")
+                }
+            }
+            Text("or:")
+                .foregroundColor(.theme.secondaryText)
+                .padding(.vertical)
+
+            GoogleSignInButton(scheme: .light, style: .wide, state: .normal) {
+                Task {
+                    do {
+                        try await authVM.signInGoogle()
+                        authViewType = .none
+                    } catch {
+                        print(error)
+                    }
+                }
+            }
+            .padding(.bottom, 24)
+            HStack {
+                Text("New to GymPartner?")
+                    .font(.headline)
+                    .foregroundColor(.theme.secondaryText)
+                goToSignUpButton
+            }
+            Spacer()
         }
+        .padding(32)
     }
 }
 
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
         SignInView(authViewType: .constant(.signIn))
+            .environmentObject(dev.authViewModel)
     }
 }
 
@@ -31,6 +88,7 @@ extension SignInView {
             }
         } label: {
             Text("Sign up")
+                .font(.headline)
         }
     }
 }

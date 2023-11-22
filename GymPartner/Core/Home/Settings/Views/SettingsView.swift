@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var vm: SettingsViewModel
-    @Binding var showAuthView: Bool
+    @Binding var authViewType: AuthViewType
     var body: some View {
         List {
             if vm.authProviders.contains(.email) {
@@ -21,7 +21,7 @@ struct SettingsView: View {
                 Task {
                     do {
                         try vm.signOut()
-                        showAuthView = true
+                        authViewType = .signIn
                     } catch {
                         print(error)
                     }
@@ -37,7 +37,7 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SettingsView(showAuthView: .constant(false))
+            SettingsView(authViewType: .constant(.none))
         }
     }
 }
