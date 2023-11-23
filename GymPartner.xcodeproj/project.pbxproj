@@ -61,6 +61,7 @@
 		A7AE4EE52B0F90D00092FB33 /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EE42B0F90D00092FB33 /* Plan.swift */; };
 		A7AE4EE72B0F90DF0092FB33 /* PlanDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EE62B0F90DF0092FB33 /* PlanDay.swift */; };
 		A7AE4EE92B0F90EE0092FB33 /* PlanTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EE82B0F90EE0092FB33 /* PlanTag.swift */; };
+		A7AE4EEB2B0FA2680092FB33 /* UserPlanRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EEA2B0FA2680092FB33 /* UserPlanRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		A7AE4EE42B0F90D00092FB33 /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		A7AE4EE62B0F90DF0092FB33 /* PlanDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDay.swift; sourceTree = "<group>"; };
 		A7AE4EE82B0F90EE0092FB33 /* PlanTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTag.swift; sourceTree = "<group>"; };
+		A7AE4EEA2B0FA2680092FB33 /* UserPlanRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPlanRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,7 +268,7 @@
 		A736666B2B0BE5BE00A679FD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A7AE4E9B2B0CD8DC0092FB33 /* DB */,
+				A7AE4E9C2B0CD8E40092FB33 /* DBUser.swift */,
 				A73666732B0BE77D00A679FD /* AuthUser.swift */,
 				A73666862B0C163E00A679FD /* GoogleSignInResult.swift */,
 				A73666932B0C231F00A679FD /* AuthProviderOption.swift */,
@@ -331,14 +333,6 @@
 				A736668F2B0C1A6100A679FD /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		A7AE4E9B2B0CD8DC0092FB33 /* DB */ = {
-			isa = PBXGroup;
-			children = (
-				A7AE4E9C2B0CD8E40092FB33 /* DBUser.swift */,
-			);
-			path = DB;
 			sourceTree = "<group>";
 		};
 		A7AE4EA02B0CE6DE0092FB33 /* Buttons */ = {
@@ -447,6 +441,7 @@
 			children = (
 				A7AE4EE02B0F82D00092FB33 /* PlanRowView.swift */,
 				A7AE4EE22B0F892A0092FB33 /* PlanTagView.swift */,
+				A7AE4EEA2B0FA2680092FB33 /* UserPlanRowView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -541,6 +536,7 @@
 				A73666892B0C16E200A679FD /* HomeView.swift in Sources */,
 				A7AE4EAE2B0CF5020092FB33 /* RootViewModel.swift in Sources */,
 				A73666832B0BFCB100A679FD /* Utilities.swift in Sources */,
+				A7AE4EEB2B0FA2680092FB33 /* UserPlanRowView.swift in Sources */,
 				A7AE4E9A2B0CD8970092FB33 /* UserManager.swift in Sources */,
 				A7AE4EE92B0F90EE0092FB33 /* PlanTag.swift in Sources */,
 				A73666442B0BE00D00A679FD /* GymPartnerApp.swift in Sources */,

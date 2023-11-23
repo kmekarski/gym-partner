@@ -33,36 +33,27 @@ struct PlanRowView: View {
             
         }
         .padding()
+        .background(Color(.systemGray5))
+        .cornerRadius(16)
     }
 }
 
 struct PlanRowView_Previews: PreviewProvider {
-    static let days1 = [
-        PlanDay(id: "1", name: "Day 1"),
-        PlanDay(id: "2", name: "Day 3"),
-        PlanDay(id: "3", name: "Day 4")
-    ]
-    static let days2 = [
-        PlanDay(id: "1", name: "Day 1")
-    ]
-    static let tags1: [PlanTag] = [.expert, .strength, .cardio]
-    static let tags2: [PlanTag] = [.beginner, .cardio]
     
-    static let plan1 = Plan(id: "1", name: "Intermediate Full Body", days: days1, tags: tags1)
-    static let plan2 = Plan(id: "2", name: "Some other plan", days: days2, tags: tags2)
     static var previews: some View {
         ScrollView {
             VStack {
                 Divider()
-                PlanRowView(plan: plan1)
+                PlanRowView(plan: dev.plans[0])
                 Divider()
-                PlanRowView(plan: plan2)
+                PlanRowView(plan: dev.plans[1])
                 Divider()
-                PlanRowView(plan: plan1)
+                PlanRowView(plan: dev.plans[0])
                 Divider()
-                PlanRowView(plan: plan2)
+                PlanRowView(plan: dev.plans[1])
                 Divider()
             }
+            .padding()
         }
     }
 }
