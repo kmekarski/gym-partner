@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AuthTextField: View {
+struct IconTextField: View {
     
     var title: String
     @Binding var text: String
@@ -36,19 +36,19 @@ struct AuthTextField: View {
     }
 }
 
-struct AuthTextField_Previews: PreviewProvider {
+struct IconTextField_Previews: PreviewProvider {
     static var previews: some View {
         VStack(spacing: 30) {
-            AuthTextField(title: "Email", text: .constant(""), iconName: "at", onClear: {
+            IconTextField(title: "Email", text: .constant(""), iconName: "at", onClear: {
                 
             }, invalid: false)
-            AuthTextField(title: "Email", text: .constant("user@gmail.com"), iconName: "at", onClear: {
+            IconTextField(title: "Email", text: .constant("user@gmail.com"), iconName: "at", onClear: {
                 
             }, invalid: false)
-            AuthTextField(title: "Password", text: .constant(""), iconName: "lock", secure: true, onClear: {
+            IconTextField(title: "Password", text: .constant(""), iconName: "lock", secure: true, onClear: {
                 
             }, invalid: false)
-            AuthTextField(title: "Password", text: .constant("lalala"), iconName: "lock", secure: true, onClear: {
+            IconTextField(title: "Password", text: .constant("lalala"), iconName: "lock", secure: true, onClear: {
                 
             }, invalid: true)
         }
@@ -56,7 +56,7 @@ struct AuthTextField_Previews: PreviewProvider {
     }
 }
 
-extension AuthTextField {
+extension IconTextField {
     private var icon: some View {
         Image(systemName: iconName)
             .font(.title2)

@@ -7,12 +7,11 @@
 
 import Foundation
 
-enum PlanTag: String {
+enum PlanTag: String, CaseIterable {
+    case cardio
     case beginner
     case intermediate
     case expert
     case strength
     case flexibility
-    case cardio
-    case yoga
 }

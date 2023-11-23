@@ -56,10 +56,10 @@ struct SignUpView_Previews: PreviewProvider {
 extension SignUpView {
     private var signUpForm: some View {
         VStack(spacing: 24) {
-            AuthTextField(title: "Username", text: $signUpVM.username, iconName: "person")
-            AuthTextField(title: "Email", text: $signUpVM.email, iconName: "at")
-            AuthTextField(title: "Password", text: $signUpVM.password, iconName: "lock", secure: true)
-            AuthTextField(title: "Repeat password", text: $signUpVM.password2, iconName: "lock", secure: true)
+            IconTextField(title: "Username", text: $signUpVM.username, iconName: "person")
+            IconTextField(title: "Email", text: $signUpVM.email, iconName: "at")
+            IconTextField(title: "Password", text: $signUpVM.password, iconName: "lock", secure: true)
+            IconTextField(title: "Repeat password", text: $signUpVM.password2, iconName: "lock", secure: true)
             Button {
                 Task {
                     do {

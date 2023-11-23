@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BrowseMyPlansView: View {
-    @Binding var showNewPlanModal: Bool
+    @EnvironmentObject var homeVM: HomeViewModel
     
     var testPlan = Plan(id: "1", name: "Full Body Workout", days: [
         PlanDay(id: "1", name: "Day 1"),
@@ -54,7 +54,8 @@ struct BrowseMyPlansView: View {
 
 struct BrowseMyPlansView_Previews: PreviewProvider {
     static var previews: some View {
-        BrowseMyPlansView(showNewPlanModal: .constant(false))
+        BrowseMyPlansView()
+            .environmentObject(dev.homeViewModel)
     }
 }
 
@@ -71,7 +72,7 @@ extension BrowseMyPlansView {
                     .multilineTextAlignment(.center)
                 Spacer()
                 Button {
-                    showNewPlanModal = true
+                    homeVM.myPlansState = .createInitial
                 } label: {
                     RoundedSquareButton(systemName: "plus", border: true)
                         .frame(width: 50, height: 50)

@@ -55,8 +55,8 @@ extension SignInView {
     
     private var signInForm: some View {
         VStack(spacing: 24) {
-            AuthTextField(title: "Email", text: $signInVM.email, iconName: "at")
-            AuthTextField(title: "Password", text: $signInVM.password, iconName: "lock", secure: true)
+            IconTextField(title: "Email", text: $signInVM.email, iconName: "at")
+            IconTextField(title: "Password", text: $signInVM.password, iconName: "lock", secure: true)
             Button {
                 
             } label: {

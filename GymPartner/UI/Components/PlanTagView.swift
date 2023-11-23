@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PlanTagView: View {
     var tag: PlanTag
+    var isSelected: Bool = false
 
     var body: some View {
 
@@ -19,6 +20,8 @@ struct PlanTagView: View {
         .font(.system(size: 14, weight: .semibold))
         .padding(.horizontal, 12)
         .padding(.vertical, 8)
+        .background(isSelected ? Color.green : Color.clear)
+        .cornerRadius(16, corners: .allCorners)
         .overlay(
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(Color(.systemGray2), lineWidth: 3)
@@ -47,8 +50,8 @@ extension PlanTagView {
             return "figure.flexibility"
         case .cardio:
             return "heart"
-        case .yoga:
-            return "figure.mind.and.body"
+//        case .yoga:
+//            return "figure.mind.and.body"
         }
     }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ModalWithTextField: View {
     var title: String
+    var placeholder: String
     @Binding var text: String
     @Binding var isShowing: Bool
     var onAccept: () -> () = {}
@@ -29,7 +30,7 @@ struct ModalWithTextField: View {
                     Text(title)
                         .font(.system(size: 22, weight: .semibold))
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    AccentUnderlineTextField(title: "Plan name", text: $text)
+                    AccentUnderlineTextField(title: placeholder, text: $text)
                         .padding(.bottom)
                     HStack(spacing: 30) {
                         Button("Cancel") {
@@ -57,7 +58,7 @@ struct ModalWithTextField: View {
 
 struct ModalWithTextField_Previews: PreviewProvider {
     static var previews: some View {
-        ModalWithTextField(title: "New plan", text: .constant(""), isShowing: .constant(true)) {
+        ModalWithTextField(title: "New plan", placeholder: "Plan name", text: .constant(""), isShowing: .constant(true)) {
             print("OK")
         }
     }

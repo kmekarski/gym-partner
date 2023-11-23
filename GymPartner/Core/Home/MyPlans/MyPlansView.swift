@@ -17,18 +17,13 @@ struct MyPlansView: View {
     @EnvironmentObject var authVM: AuthViewModel
     @EnvironmentObject var createPlanVM: CreatePlanViewModel
     @State var user: DBUser?
-    @State var showNewPlanModal: Bool = false
     var body: some View {
         ZStack {
             switch homeVM.myPlansState {
             case .browse:
-                BrowseMyPlansView(showNewPlanModal: $showNewPlanModal)
+                BrowseMyPlansView()
             case .createInitial:
                 CreatePlanView()
-            }
-            
-            ModalWithTextField(title: "New plan", text: $homeVM.newPlanName, isShowing: $showNewPlanModal) {
-                homeVM.myPlansState = .createInitial
             }
         }
     }
