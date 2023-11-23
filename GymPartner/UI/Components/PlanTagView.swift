@@ -21,7 +21,7 @@ struct PlanTagView: View {
         .padding(.vertical, 8)
         .overlay(
                 RoundedRectangle(cornerRadius: 16)
-                    .stroke(Color(.systemGray2), lineWidth: 4)
+                    .stroke(Color(.systemGray2), lineWidth: 3)
                 )
     }
 }

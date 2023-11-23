@@ -37,6 +37,15 @@ final class DeveloperPreview {
     private let tags1: [PlanTag] = [.expert, .strength, .cardio]
     private let tags2: [PlanTag] = [.beginner, .cardio]
     
+    let workoutInHistory = WorkoutInHistory(
+        id: "1",
+        name: "Push day",
+        planName: "Intermediate FBW",
+        numberOfExercises: 10,
+        numberOfSets: 18,
+        date: Date(),
+        timeInSeconds: 3600 - 180)
+    
     var plans: [Plan] = []
     
     private init() {

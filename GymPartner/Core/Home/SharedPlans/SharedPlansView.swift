@@ -54,7 +54,6 @@ extension SharedPlansView {
                 .multilineTextAlignment(.center)
             Text("learn from the experienced")
                 .font(.system(size: 20, weight: .regular))
-                .frame(width: 220)
                 .multilineTextAlignment(.center)
         }
     }

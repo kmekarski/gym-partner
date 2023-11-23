@@ -21,7 +21,7 @@ struct UserPlanRowView: View {
                                 image.resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .clipShape(Circle())
-                                    .frame(maxWidth: 40, maxHeight: 40)
+                                    .frame(maxWidth: 30, maxHeight: 30)
                             },
                             placeholder: {
                                 ProgressView()
@@ -39,14 +39,14 @@ struct UserPlanRowView: View {
             
             HStack {
                 Text(plan.name)
-                    .font(.system(size: 24, weight: .regular))
+                    .font(.system(size: 20, weight: .regular))
                     .frame(width: 230, alignment: .leading)
                 Spacer()
                 HStack {
                     Image(systemName: "calendar")
                     Text("\(plan.days.count)")
                 }
-                .font(.system(size: 24, weight: .light))
+                .font(.system(size: 22, weight: .light))
                 .frame(width: 50, alignment: .trailing)
                 
             }

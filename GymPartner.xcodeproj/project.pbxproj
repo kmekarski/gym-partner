@@ -62,6 +62,10 @@
 		A7AE4EE72B0F90DF0092FB33 /* PlanDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EE62B0F90DF0092FB33 /* PlanDay.swift */; };
 		A7AE4EE92B0F90EE0092FB33 /* PlanTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EE82B0F90EE0092FB33 /* PlanTag.swift */; };
 		A7AE4EEB2B0FA2680092FB33 /* UserPlanRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EEA2B0FA2680092FB33 /* UserPlanRowView.swift */; };
+		A7AE4EED2B0FE1B70092FB33 /* HistoryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EEC2B0FE1B70092FB33 /* HistoryRowView.swift */; };
+		A7AE4EEF2B0FE21C0092FB33 /* WorkoutInHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EEE2B0FE21C0092FB33 /* WorkoutInHistory.swift */; };
+		A7AE4EF12B0FE2FD0092FB33 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EF02B0FE2FD0092FB33 /* Date.swift */; };
+		A7AE4EF32B0FE3180092FB33 /* Int16.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EF22B0FE3180092FB33 /* Int16.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +118,10 @@
 		A7AE4EE62B0F90DF0092FB33 /* PlanDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDay.swift; sourceTree = "<group>"; };
 		A7AE4EE82B0F90EE0092FB33 /* PlanTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTag.swift; sourceTree = "<group>"; };
 		A7AE4EEA2B0FA2680092FB33 /* UserPlanRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPlanRowView.swift; sourceTree = "<group>"; };
+		A7AE4EEC2B0FE1B70092FB33 /* HistoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRowView.swift; sourceTree = "<group>"; };
+		A7AE4EEE2B0FE21C0092FB33 /* WorkoutInHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutInHistory.swift; sourceTree = "<group>"; };
+		A7AE4EF02B0FE2FD0092FB33 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		A7AE4EF22B0FE3180092FB33 /* Int16.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int16.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +285,7 @@
 				A7AE4EE42B0F90D00092FB33 /* Plan.swift */,
 				A7AE4EE62B0F90DF0092FB33 /* PlanDay.swift */,
 				A7AE4EE82B0F90EE0092FB33 /* PlanTag.swift */,
+				A7AE4EEE2B0FE21C0092FB33 /* WorkoutInHistory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -297,6 +306,8 @@
 			children = (
 				A7AE4EA32B0CE7610092FB33 /* Color.swift */,
 				A7AE4EA92B0CF05F0092FB33 /* PreviewProvider.swift */,
+				A7AE4EF02B0FE2FD0092FB33 /* Date.swift */,
+				A7AE4EF22B0FE3180092FB33 /* Int16.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -442,6 +453,7 @@
 				A7AE4EE02B0F82D00092FB33 /* PlanRowView.swift */,
 				A7AE4EE22B0F892A0092FB33 /* PlanTagView.swift */,
 				A7AE4EEA2B0FA2680092FB33 /* UserPlanRowView.swift */,
+				A7AE4EEC2B0FE1B70092FB33 /* HistoryRowView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -547,6 +559,7 @@
 				A73666922B0C211B00A679FD /* GoogleSignInHelper.swift in Sources */,
 				A7AE4ECD2B0E83E10092FB33 /* CreatePlanView.swift in Sources */,
 				A73666852B0C161200A679FD /* AuthViewModel.swift in Sources */,
+				A7AE4EF12B0FE2FD0092FB33 /* Date.swift in Sources */,
 				A7AE4EB32B0E3BEB0092FB33 /* MyPlansView.swift in Sources */,
 				A7AE4ED52B0E93D60092FB33 /* ExerciseManager.swift in Sources */,
 				A7AE4EC82B0E6A050092FB33 /* SignInViewModel.swift in Sources */,
@@ -554,16 +567,19 @@
 				A7AE4EDC2B0F7D8E0092FB33 /* BrowseMyPlansView.swift in Sources */,
 				A7AE4EE12B0F82D00092FB33 /* PlanRowView.swift in Sources */,
 				A736666F2B0BE74F00A679FD /* AuthManager.swift in Sources */,
+				A7AE4EF32B0FE3180092FB33 /* Int16.swift in Sources */,
 				A7AE4EC42B0E69BF0092FB33 /* SignUpViewModel.swift in Sources */,
 				A7AE4E9D2B0CD8E40092FB33 /* DBUser.swift in Sources */,
 				A7AE4EBD2B0E41150092FB33 /* SignUpView.swift in Sources */,
 				A7AE4EE52B0F90D00092FB33 /* Plan.swift in Sources */,
+				A7AE4EEF2B0FE21C0092FB33 /* WorkoutInHistory.swift in Sources */,
 				A7AE4EDA2B0EAA810092FB33 /* AccentUnderlineTextField.swift in Sources */,
 				A73666742B0BE77D00A679FD /* AuthUser.swift in Sources */,
 				A7AE4EBF2B0E41900092FB33 /* SignInView.swift in Sources */,
 				A7AE4EBB2B0E3CF50092FB33 /* HistoryView.swift in Sources */,
 				A7AE4ECF2B0E846E0092FB33 /* CreatePlanViewModel.swift in Sources */,
 				A7AE4ED32B0E88E60092FB33 /* BodyPart.swift in Sources */,
+				A7AE4EED2B0FE1B70092FB33 /* HistoryRowView.swift in Sources */,
 				A7AE4EE32B0F892A0092FB33 /* PlanTagView.swift in Sources */,
 				A73666902B0C1A6100A679FD /* SettingsViewModel.swift in Sources */,
 				A7AE4EDE2B0F7EA20092FB33 /* RoundedSquareButton.swift in Sources */,
