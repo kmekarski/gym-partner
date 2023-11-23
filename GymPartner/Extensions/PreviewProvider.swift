@@ -31,7 +31,7 @@ final class DeveloperPreview {
         userManager = ManagersProvider.provideUserManager()
         exerciseManager = ManagersProvider.provideExerciseManager()
         rootViewModel = RootViewModel(authManager: authManager)
-        homeViewModel = HomeViewModel(authManager: authManager)
+        homeViewModel = HomeViewModel()
         authViewModel = AuthViewModel(authManager: authManager, userManager: userManager)
         settingsViewModel = SettingsViewModel(authManager: authManager)
         createPlanViewModel = CreatePlanViewModel(exerciseManager: exerciseManager)

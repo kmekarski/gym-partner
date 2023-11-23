@@ -8,11 +8,15 @@
 import Foundation
 
 final class HomeViewModel: ObservableObject {
-    @Published var authManager: AuthManager
+    @Published var myPlansState: MyPlansState = .browse
+    @Published var newPlanName: String = ""
+
+    init() {
+        
+    }
     
-    @Published var planCreationState: PlanCreationState = .menu
-    
-    init(authManager: AuthManager) {
-        self.authManager = authManager
+    func resetViews() {
+        myPlansState = .browse
+        newPlanName = ""
     }
 }

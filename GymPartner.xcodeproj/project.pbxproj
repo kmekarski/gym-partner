@@ -54,6 +54,13 @@
 		A7AE4ED52B0E93D60092FB33 /* ExerciseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4ED42B0E93D60092FB33 /* ExerciseManager.swift */; };
 		A7AE4ED82B0EA5260092FB33 /* ModalWithTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4ED72B0EA5260092FB33 /* ModalWithTextField.swift */; };
 		A7AE4EDA2B0EAA810092FB33 /* AccentUnderlineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4ED92B0EAA810092FB33 /* AccentUnderlineTextField.swift */; };
+		A7AE4EDC2B0F7D8E0092FB33 /* BrowseMyPlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EDB2B0F7D8E0092FB33 /* BrowseMyPlansView.swift */; };
+		A7AE4EDE2B0F7EA20092FB33 /* RoundedSquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EDD2B0F7EA20092FB33 /* RoundedSquareButton.swift */; };
+		A7AE4EE12B0F82D00092FB33 /* PlanRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EE02B0F82D00092FB33 /* PlanRowView.swift */; };
+		A7AE4EE32B0F892A0092FB33 /* PlanTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EE22B0F892A0092FB33 /* PlanTagView.swift */; };
+		A7AE4EE52B0F90D00092FB33 /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EE42B0F90D00092FB33 /* Plan.swift */; };
+		A7AE4EE72B0F90DF0092FB33 /* PlanDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EE62B0F90DF0092FB33 /* PlanDay.swift */; };
+		A7AE4EE92B0F90EE0092FB33 /* PlanTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4EE82B0F90EE0092FB33 /* PlanTag.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +105,13 @@
 		A7AE4ED42B0E93D60092FB33 /* ExerciseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseManager.swift; sourceTree = "<group>"; };
 		A7AE4ED72B0EA5260092FB33 /* ModalWithTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalWithTextField.swift; sourceTree = "<group>"; };
 		A7AE4ED92B0EAA810092FB33 /* AccentUnderlineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentUnderlineTextField.swift; sourceTree = "<group>"; };
+		A7AE4EDB2B0F7D8E0092FB33 /* BrowseMyPlansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseMyPlansView.swift; sourceTree = "<group>"; };
+		A7AE4EDD2B0F7EA20092FB33 /* RoundedSquareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedSquareButton.swift; sourceTree = "<group>"; };
+		A7AE4EE02B0F82D00092FB33 /* PlanRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanRowView.swift; sourceTree = "<group>"; };
+		A7AE4EE22B0F892A0092FB33 /* PlanTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTagView.swift; sourceTree = "<group>"; };
+		A7AE4EE42B0F90D00092FB33 /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
+		A7AE4EE62B0F90DF0092FB33 /* PlanDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDay.swift; sourceTree = "<group>"; };
+		A7AE4EE82B0F90EE0092FB33 /* PlanTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +235,7 @@
 		A73666662B0BE54600A679FD /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A7AE4EDF2B0F82BB0092FB33 /* Components */,
 				A7AE4ED62B0EA5180092FB33 /* Modals */,
 				A7AE4EC02B0E43D30092FB33 /* TextFields */,
 				A7AE4EA02B0CE6DE0092FB33 /* Buttons */,
@@ -257,6 +272,9 @@
 				A73666932B0C231F00A679FD /* AuthProviderOption.swift */,
 				A7AE4ED02B0E88C30092FB33 /* Exercise.swift */,
 				A7AE4ED22B0E88E60092FB33 /* BodyPart.swift */,
+				A7AE4EE42B0F90D00092FB33 /* Plan.swift */,
+				A7AE4EE62B0F90DF0092FB33 /* PlanDay.swift */,
+				A7AE4EE82B0F90EE0092FB33 /* PlanTag.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -327,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				A7AE4EA12B0CE74F0092FB33 /* WideAccentButton.swift */,
+				A7AE4EDD2B0F7EA20092FB33 /* RoundedSquareButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -360,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				A7AE4EB22B0E3BEB0092FB33 /* MyPlansView.swift */,
+				A7AE4EDB2B0F7D8E0092FB33 /* BrowseMyPlansView.swift */,
 			);
 			path = MyPlans;
 			sourceTree = "<group>";
@@ -420,6 +440,15 @@
 				A7AE4ED72B0EA5260092FB33 /* ModalWithTextField.swift */,
 			);
 			path = Modals;
+			sourceTree = "<group>";
+		};
+		A7AE4EDF2B0F82BB0092FB33 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A7AE4EE02B0F82D00092FB33 /* PlanRowView.swift */,
+				A7AE4EE22B0F892A0092FB33 /* PlanTagView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -513,6 +542,7 @@
 				A7AE4EAE2B0CF5020092FB33 /* RootViewModel.swift in Sources */,
 				A73666832B0BFCB100A679FD /* Utilities.swift in Sources */,
 				A7AE4E9A2B0CD8970092FB33 /* UserManager.swift in Sources */,
+				A7AE4EE92B0F90EE0092FB33 /* PlanTag.swift in Sources */,
 				A73666442B0BE00D00A679FD /* GymPartnerApp.swift in Sources */,
 				A7AE4EB92B0E3CE20092FB33 /* SharedPlansView.swift in Sources */,
 				A73666802B0BFB6E00A679FD /* AuthView.swift in Sources */,
@@ -525,17 +555,22 @@
 				A7AE4ED52B0E93D60092FB33 /* ExerciseManager.swift in Sources */,
 				A7AE4EC82B0E6A050092FB33 /* SignInViewModel.swift in Sources */,
 				A736668E2B0C1A5800A679FD /* SettingsView.swift in Sources */,
+				A7AE4EDC2B0F7D8E0092FB33 /* BrowseMyPlansView.swift in Sources */,
+				A7AE4EE12B0F82D00092FB33 /* PlanRowView.swift in Sources */,
 				A736666F2B0BE74F00A679FD /* AuthManager.swift in Sources */,
 				A7AE4EC42B0E69BF0092FB33 /* SignUpViewModel.swift in Sources */,
 				A7AE4E9D2B0CD8E40092FB33 /* DBUser.swift in Sources */,
 				A7AE4EBD2B0E41150092FB33 /* SignUpView.swift in Sources */,
+				A7AE4EE52B0F90D00092FB33 /* Plan.swift in Sources */,
 				A7AE4EDA2B0EAA810092FB33 /* AccentUnderlineTextField.swift in Sources */,
 				A73666742B0BE77D00A679FD /* AuthUser.swift in Sources */,
 				A7AE4EBF2B0E41900092FB33 /* SignInView.swift in Sources */,
 				A7AE4EBB2B0E3CF50092FB33 /* HistoryView.swift in Sources */,
 				A7AE4ECF2B0E846E0092FB33 /* CreatePlanViewModel.swift in Sources */,
 				A7AE4ED32B0E88E60092FB33 /* BodyPart.swift in Sources */,
+				A7AE4EE32B0F892A0092FB33 /* PlanTagView.swift in Sources */,
 				A73666902B0C1A6100A679FD /* SettingsViewModel.swift in Sources */,
+				A7AE4EDE2B0F7EA20092FB33 /* RoundedSquareButton.swift in Sources */,
 				A7AE4EA22B0CE74F0092FB33 /* WideAccentButton.swift in Sources */,
 				A73666942B0C231F00A679FD /* AuthProviderOption.swift in Sources */,
 				A736666A2B0BE56700A679FD /* RootView.swift in Sources */,
@@ -543,6 +578,7 @@
 				A7AE4EAA2B0CF05F0092FB33 /* PreviewProvider.swift in Sources */,
 				A7AE4EA42B0CE7610092FB33 /* Color.swift in Sources */,
 				A7AE4ED82B0EA5260092FB33 /* ModalWithTextField.swift in Sources */,
+				A7AE4EE72B0F90DF0092FB33 /* PlanDay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

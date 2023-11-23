@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-enum PlanCreationState {
-    case menu
-    case initial
+enum MyPlansState {
+    case browse
+    case createInitial
 }
 
 struct MyPlansView: View {
@@ -20,23 +20,15 @@ struct MyPlansView: View {
     @State var showNewPlanModal: Bool = false
     var body: some View {
         ZStack {
-            switch homeVM.planCreationState {
-            case .menu:
-                VStack {
-                    Text("My plans")
-                    Button {
-                        showNewPlanModal = true
-                    } label: {
-                        WideAccentButton("+")
-                    }
-                }
-                .padding()
-            case .initial:
+            switch homeVM.myPlansState {
+            case .browse:
+                BrowseMyPlansView(showNewPlanModal: $showNewPlanModal)
+            case .createInitial:
                 CreatePlanView()
             }
             
-            ModalWithTextField(title: "New plan", text: $createPlanVM.newPlanName, isShowing: $showNewPlanModal) {
-                homeVM.planCreationState = .initial
+            ModalWithTextField(title: "New plan", text: $homeVM.newPlanName, isShowing: $showNewPlanModal) {
+                homeVM.myPlansState = .createInitial
             }
         }
     }

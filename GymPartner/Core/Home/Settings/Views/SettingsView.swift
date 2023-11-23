@@ -35,6 +35,7 @@ struct SettingsView: View {
             
             Button("Sign out") {
                 Task {
+                    homeVM.resetViews()
                     do {
                         try settingsVM.signOut()
                         authViewType = .signIn

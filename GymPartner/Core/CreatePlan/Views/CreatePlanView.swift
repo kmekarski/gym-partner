@@ -15,7 +15,7 @@ struct CreatePlanView: View {
             HStack {
                 Text("Create plan")
                 Button("Back") {
-                    homeVM.planCreationState = .menu
+                    homeVM.myPlansState = .browse
                 }
             }
             
