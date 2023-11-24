@@ -31,6 +31,11 @@ final class HomeViewModel: ObservableObject {
         return selectedDay.exercises.isEmpty
     }
     
+    func selectedDayExercises() -> [Exercise] {
+        guard let selectedDay = selectedDay else { return [] }
+        return selectedDay.exercises
+    }
+    
     func addNewDay(name: String) {
         days.append(PlanDay(name: name))
         selectedDay = days.last
@@ -44,6 +49,7 @@ final class HomeViewModel: ObservableObject {
             var updatedDay = days[index]
             updatedDay.name = newName
             days[index] = updatedDay
+            selectedDay = updatedDay
         }
     }
     
@@ -63,6 +69,7 @@ final class HomeViewModel: ObservableObject {
             var updatedDay = days[index]
             updatedDay.exercises.append(exercise)
             days[index] = updatedDay
+            selectedDay = updatedDay
         }
     }
     
@@ -74,6 +81,7 @@ final class HomeViewModel: ObservableObject {
             var updatedDay = days[index]
             updatedDay.exercises.remove(at: exerciseIndex)
             days[index] = updatedDay
+            selectedDay = updatedDay
         }
     }
 }

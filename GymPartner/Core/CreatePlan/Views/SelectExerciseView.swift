@@ -37,7 +37,7 @@ extension SelectExerciseView {
     private var header: some View {
         HStack(spacing: 20) {
             Button {
-                homeVM.myPlansState = .createInitial
+                exit()
             } label: {
                 RoundedSquareButton(systemName: "chevron.left", border: true)
                     .frame(width: 50, height: 50)
@@ -61,6 +61,10 @@ extension SelectExerciseView {
             VStack {
                 ForEach(createPlanVM.filteredExercises) { exercise in
                     ExerciseRowView(exercise: exercise)
+                        .onTapGesture {
+                            homeVM.addExercise(day: homeVM.selectedDay, exercise: exercise)
+                            exit()
+                        }
                 }
             }
         }
@@ -74,5 +78,9 @@ extension SelectExerciseView {
                 .font(.system(size: 20, weight: .regular))
             Spacer()
         }
+    }
+    
+    private func exit() {
+        homeVM.myPlansState = .createInitial
     }
 }

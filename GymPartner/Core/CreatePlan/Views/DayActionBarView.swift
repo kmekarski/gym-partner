@@ -13,23 +13,28 @@ struct DayActionBarView: View {
     @State var newDayName: String = ""
     @State var showRenameDayModal: Bool = false
     var body: some View {
-        ZStack(alignment: .bottom) {
+        ZStack {
             if expanded {
                 background
             }
-            VStack(spacing: 2) {
+            VStack {
                 Spacer()
-                if expanded {
-                    menu
+                VStack {
+                    if expanded {
+                        menu
+                    }
+                    actionBar
                 }
-                actionBar
+                .background(Color(.systemGray5))
+                .cornerRadius(20)
+                .frame(width: 170)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color(.systemGray2), lineWidth: 3)
+                )
             }
             .padding(.bottom)
-            ModalWithTextField(title: "Rename day", placeholder: "New name", text: $newDayName, isShowing: $showRenameDayModal) {
-                homeVM.renameDay(day: homeVM.selectedDay, newName: newDayName)
-            }
         }
-        .frame(maxWidth: .infinity)
     }
 }
 
@@ -51,7 +56,7 @@ extension DayActionBarView {
     private var actionBar: some View {
         HStack {
             Button {
-                
+                homeVM.myPlansState = .selectExercise
             } label: {
                 Image(systemName: "plus")
                     .padding(.horizontal, 20)
@@ -67,9 +72,6 @@ extension DayActionBarView {
             }
         }
         .padding()
-        .frame(width: 170)
-        .background(Color(.systemGray5))
-        .cornerRadius(20, corners: expanded ? [.bottomLeft, .bottomRight] : .allCorners)
     }
     
     private var menu: some View {
@@ -84,7 +86,9 @@ extension DayActionBarView {
                     Text("Rename day")
                         .frame(width: 100, alignment: .leading)
                 }
-                .padding(8)
+                .padding(10)
+                .padding(.top, 10)
+                .frame(width: .infinity)
             }
             Divider()
             Button {
@@ -97,14 +101,12 @@ extension DayActionBarView {
                     Text("Delete day")
                         .frame(width: 100, alignment: .leading)
                 }
-                .padding(8)
+                .padding(10)
+                .frame(width: .infinity)
             }
+            Divider()
         }
         .font(.system(size: 16, weight: .semibold))
-        .padding()
-        .frame(width: 170)
-        .background(Color(.systemGray5))
-        .cornerRadius(20, corners: [.topLeft, .topRight])
     }
     
     private func hide() {
@@ -119,3 +121,4 @@ extension DayActionBarView {
         }
     }
 }
+

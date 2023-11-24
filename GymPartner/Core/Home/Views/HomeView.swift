@@ -40,5 +40,7 @@ struct HomeView_Previews: PreviewProvider {
         HomeView(authViewType: .constant(.none))
             .environmentObject(dev.homeViewModel)
             .environmentObject(dev.settingsViewModel)
+            .environmentObject(dev.createPlanViewModel)
+            .environmentObject(dev.authViewModel)
     }
 }

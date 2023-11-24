@@ -24,18 +24,19 @@ struct CreatePlanView: View {
                     RegularTextField(title: "Plan name", text: $homeVM.newPlanName)
                         .padding(.bottom)
                     TagsButtonsGroupView(geometry: geometry, selectedTags: $selectedTags)
-                        Text("Only 3 tags can be selected")
-                            .foregroundColor(.red)
-                            .opacity(selectedTags.count > 3 ? 1.0 : 0.0)
+                    Text("Only 3 tags can be selected")
+                        .foregroundColor(.red)
+                        .opacity(selectedTags.count > 3 ? 1.0 : 0.0)
                     Divider()
                     if homeVM.days.isEmpty {
+                        spacer
                         noDaysMessage
                     } else {
                         DaysOfPlanView(showNewDayModal: $showNewDayModal)
                     }
-                    Spacer()
                 }
-                .padding()
+                .padding(.top)
+                .padding(.horizontal)
                 if !homeVM.days.isEmpty {
                     DayActionBarView()
                 }
@@ -53,11 +54,9 @@ struct CreatePlanView: View {
 
 struct CreatePlanView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationStack {
-            CreatePlanView()
-                .environmentObject(dev.homeViewModel)
-                .environmentObject(dev.createPlanViewModel)
-        }
+        CreatePlanView()
+            .environmentObject(dev.homeViewModel)
+            .environmentObject(dev.createPlanViewModel)
     }
 }
 
@@ -94,7 +93,7 @@ extension CreatePlanView {
                 HStack {
                     Image(systemName: "plus")
                     Text("Add first day of your plan")
-                    .font(.system(size: 16, weight: .semibold))
+                        .font(.system(size: 16, weight: .semibold))
                 }
                 .padding()
                 .background(Color(.systemGray5))
@@ -102,5 +101,17 @@ extension CreatePlanView {
             }
             Spacer()
         }
+    }
+    
+    private var spacer: some View {
+        Text("space")
+            .foregroundColor(.clear)
+            .overlay(
+                Rectangle()
+                    .foregroundColor(.clear)
+                    .frame(height: 2)
+                    .offset(x: 0, y: 20)
+            )
+            .padding(.vertical)
     }
 }

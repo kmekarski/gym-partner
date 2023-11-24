@@ -13,29 +13,14 @@ struct DaysOfPlanView: View {
     var body: some View {
         ScrollViewReader { scrollProxy in
             VStack {
-                HStack {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 16) {
-                            ForEach(homeVM.days.indices, id: \.self) { index in
-                                dayText(day: homeVM.days[index])
-                            }
-                        }
-                        .padding(.vertical)
-                    }
-                    Button {
-                        homeVM.addNewDay(name: "day \(homeVM.days.count + 1)")
-                    } label: {
-                        newDayButton
-                    }
-                    
-                }
-                .padding(.leading)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                Spacer()
+                dayPicker
                 if homeVM.noExercisesInSelectedDay() {
                     noExercisesMessage
+                } else {
+                    exerciseList
                 }
             }
+            .frame(height: .infinity)
             .onChange(of: homeVM.days, perform: { newValue in
                 withAnimation() {
                     scrollProxy.scrollTo(homeVM.days.last?.id ?? "0")
@@ -47,12 +32,35 @@ struct DaysOfPlanView: View {
 
 struct DaysOfPlanView_Previews: PreviewProvider {
     static var previews: some View {
-        DaysOfPlanView(showNewDayModal: .constant(false))
+        CreatePlanView()
             .environmentObject(dev.homeViewModel)
+            .environmentObject(dev.createPlanViewModel)
     }
 }
 
 extension DaysOfPlanView {
+    
+    private var dayPicker: some View {
+        HStack {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 16) {
+                    ForEach(homeVM.days) { day in
+                        dayText(day: day)
+                    }
+                }
+                .padding(.vertical)
+            }
+            Button {
+                homeVM.addNewDay(name: "day \(homeVM.days.count + 1)")
+            } label: {
+                newDayButton
+            }
+            
+        }
+        .padding(.leading)
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
     private var newDayButton: some View {
         Button {
             showNewDayModal = true
@@ -66,6 +74,17 @@ extension DaysOfPlanView {
         }
     }
     
+    private var exerciseList: some View {
+        ScrollView {
+            VStack {
+                ForEach(homeVM.selectedDayExercises()) { exercise in
+                    ExerciseRowView(exercise: exercise)
+                }
+            }
+        }
+        .ignoresSafeArea()
+    }
+    
     private var noExercisesMessage: some View {
         VStack {
             Spacer()
@@ -75,7 +94,7 @@ extension DaysOfPlanView {
                 HStack {
                     Image(systemName: "plus")
                     Text("Let's add some exercises")
-                    .font(.system(size: 16, weight: .semibold))
+                        .font(.system(size: 16, weight: .semibold))
                 }
                 .padding()
                 .background(Color(.systemGray5))
