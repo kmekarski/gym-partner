@@ -26,14 +26,13 @@ final class DeveloperPreview {
     let settingsViewModel: SettingsViewModel
     let createPlanViewModel: CreatePlanViewModel
     
-    let days1 = [
-        PlanDay(name: "Day 1"),
-        PlanDay(name: "Day 2"),
-        PlanDay(name: "Day 3")
-    ]
-    let days2 = [
-        PlanDay(name: "Day 1")
-    ]
+    let benchPressExercise = Exercise(id: "1", name: "Bench press", bodyParts: [.chest, .tricep])
+    let squatExercise = Exercise(id: "2", name: "Squat", bodyParts: [.legs, .glutes, .quads])
+    
+    let planExercises: [PlanExercise]
+    
+    let planDays: [PlanDay]
+
     let tags1: [PlanTag] = [.expert, .strength, .cardio]
     let tags2: [PlanTag] = [.beginner, .cardio]
     
@@ -46,7 +45,7 @@ final class DeveloperPreview {
         date: Date(),
         timeInSeconds: 3600 - 180)
     
-    var plans: [Plan] = []
+    var plans: [Plan]
     
     private init() {
         authManager = ManagersProvider.provideAuthManager()
@@ -58,9 +57,19 @@ final class DeveloperPreview {
         settingsViewModel = SettingsViewModel(authManager: authManager)
         createPlanViewModel = CreatePlanViewModel(exerciseManager: exerciseManager)
         
+        planExercises = [
+            PlanExercise(exercise: benchPressExercise),
+            PlanExercise(exercise: squatExercise),
+        ]
+        
+        planDays = [
+            PlanDay(name: "Day 1", exercises: planExercises),
+            PlanDay(name: "Day 2", exercises: planExercises)
+        ]
+        
         plans = [
-            Plan(id: "1", name: "Intermediate Full Body Workout", days: days1, tags: tags1, authorName: "someGuy123", authorPhotoUrl: "https://fastly.picsum.photos/id/936/96/96.jpg?hmac=d1amt6UQzVBoq3zj1HI-5Sv4sJLogXpzqiLSuwbmBEE"),
-            Plan(id: "2", name: "Some other plan", days: days2, tags: tags2, authorName: "otherGuy789", authorPhotoUrl: "https://fastly.picsum.photos/id/567/96/96.jpg?hmac=2t58DxDsk0q6eabOjL-zmUFQQwyCVq5Ryc7aUzYb5sA")
+            Plan(id: "1", name: "Intermediate Full Body Workout", days: planDays, tags: tags1, authorName: "someGuy123", authorPhotoUrl: "https://fastly.picsum.photos/id/936/96/96.jpg?hmac=d1amt6UQzVBoq3zj1HI-5Sv4sJLogXpzqiLSuwbmBEE"),
+            Plan(id: "2", name: "Some other plan", days: planDays, tags: tags2, authorName: "otherGuy789", authorPhotoUrl: "https://fastly.picsum.photos/id/567/96/96.jpg?hmac=2t58DxDsk0q6eabOjL-zmUFQQwyCVq5Ryc7aUzYb5sA")
         ]
     }
     

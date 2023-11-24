@@ -14,11 +14,16 @@ struct PlanDay: Identifiable, Equatable {
     
     let id: String
     var name: String
-    var exercises: [Exercise]
+    var exercises: [PlanExercise]
     
     init(name: String) {
         self.id = UUID().uuidString
         self.name = name
         self.exercises = []
     }
-}
+    
+    init(name: String, exercises: [PlanExercise]) {
+        self.id = UUID().uuidString
+        self.name = name
+        self.exercises = exercises
+    }}

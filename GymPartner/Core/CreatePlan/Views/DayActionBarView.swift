@@ -34,6 +34,9 @@ struct DayActionBarView: View {
                 )
             }
             .padding(.bottom)
+            ModalWithTextField(title: "Rename day", placeholder: "New name", text: $newDayName, isShowing: $showRenameDayModal) {
+                homeVM.renameDay(day: homeVM.selectedDay, newName: newDayName)
+            }
         }
     }
 }
@@ -77,6 +80,7 @@ extension DayActionBarView {
     private var menu: some View {
         VStack {
             Button {
+                newDayName = homeVM.selectedDay?.name ?? ""
                 showRenameDayModal = true
                 hide()
             } label: {

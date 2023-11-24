@@ -77,12 +77,15 @@ extension DaysOfPlanView {
     private var exerciseList: some View {
         ScrollView {
             VStack {
-                ForEach(homeVM.selectedDayExercises()) { exercise in
-                    ExerciseRowView(exercise: exercise)
+                ForEach(homeVM.selectedDayExercises().indices, id: \.self) { index in
+                    if let selectedDay = homeVM.selectedDay {
+                        PlanExerciseRowView(day: selectedDay, exerciseIndex: index)
+                            .animation(.none, value: homeVM.selectedDay)
+                    }
                 }
             }
+            .padding(.bottom, 100)
         }
-        .ignoresSafeArea()
     }
     
     private var noExercisesMessage: some View {

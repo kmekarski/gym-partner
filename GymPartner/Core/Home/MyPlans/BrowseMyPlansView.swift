@@ -43,6 +43,15 @@ struct BrowseMyPlansView: View {
                         PlanRowView(plan: testPlan)
                             .background(Color(.systemGray5))
                         .cornerRadius(10)
+                        PlanRowView(plan: testPlan)
+                            .background(Color(.systemGray5))
+                        .cornerRadius(10)
+                        PlanRowView(plan: testPlan)
+                            .background(Color(.systemGray5))
+                        .cornerRadius(10)
+                        PlanRowView(plan: testPlan)
+                            .background(Color(.systemGray5))
+                        .cornerRadius(10)
                     }
                 }
                 .padding(.vertical)

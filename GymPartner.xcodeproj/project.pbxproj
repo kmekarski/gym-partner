@@ -74,6 +74,9 @@
 		A7AE4F012B10E3490092FB33 /* SelectExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4F002B10E3490092FB33 /* SelectExerciseView.swift */; };
 		A7AE4F032B10E6F00092FB33 /* ExerciseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4F022B10E6F00092FB33 /* ExerciseRowView.swift */; };
 		A7AE4F052B10EB1F0092FB33 /* ConfirmationModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4F042B10EB1F0092FB33 /* ConfirmationModal.swift */; };
+		A7AE4F0B2B113CB10092FB33 /* PlanExerciseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4F0A2B113CB10092FB33 /* PlanExerciseRowView.swift */; };
+		A7AE4F0D2B113D1B0092FB33 /* PlanExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4F0C2B113D1B0092FB33 /* PlanExercise.swift */; };
+		A7AE4F0F2B113E120092FB33 /* NumberStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4F0E2B113E120092FB33 /* NumberStepper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +141,9 @@
 		A7AE4F002B10E3490092FB33 /* SelectExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectExerciseView.swift; sourceTree = "<group>"; };
 		A7AE4F022B10E6F00092FB33 /* ExerciseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRowView.swift; sourceTree = "<group>"; };
 		A7AE4F042B10EB1F0092FB33 /* ConfirmationModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationModal.swift; sourceTree = "<group>"; };
+		A7AE4F0A2B113CB10092FB33 /* PlanExerciseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanExerciseRowView.swift; sourceTree = "<group>"; };
+		A7AE4F0C2B113D1B0092FB33 /* PlanExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanExercise.swift; sourceTree = "<group>"; };
+		A7AE4F0E2B113E120092FB33 /* NumberStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberStepper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +271,7 @@
 				A7AE4ED62B0EA5180092FB33 /* Modals */,
 				A7AE4EC02B0E43D30092FB33 /* TextFields */,
 				A7AE4EA02B0CE6DE0092FB33 /* Buttons */,
+				A7AE4F0E2B113E120092FB33 /* NumberStepper.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -299,8 +306,9 @@
 				A7AE4ED02B0E88C30092FB33 /* Exercise.swift */,
 				A7AE4ED22B0E88E60092FB33 /* BodyPart.swift */,
 				A7AE4EE42B0F90D00092FB33 /* Plan.swift */,
-				A7AE4EE62B0F90DF0092FB33 /* PlanDay.swift */,
 				A7AE4EE82B0F90EE0092FB33 /* PlanTag.swift */,
+				A7AE4EE62B0F90DF0092FB33 /* PlanDay.swift */,
+				A7AE4F0C2B113D1B0092FB33 /* PlanExercise.swift */,
 				A7AE4EEE2B0FE21C0092FB33 /* WorkoutInHistory.swift */,
 			);
 			path = Models;
@@ -449,6 +457,8 @@
 				A7AE4EFC2B0FF8C50092FB33 /* TagsButtonsGroupView.swift */,
 				A7AE4EFE2B1001060092FB33 /* DaysOfPlanView.swift */,
 				A7AE4F002B10E3490092FB33 /* SelectExerciseView.swift */,
+				A7AE4F022B10E6F00092FB33 /* ExerciseRowView.swift */,
+				A7AE4F0A2B113CB10092FB33 /* PlanExerciseRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -477,7 +487,6 @@
 				A7AE4EE22B0F892A0092FB33 /* PlanTagView.swift */,
 				A7AE4EEA2B0FA2680092FB33 /* UserPlanRowView.swift */,
 				A7AE4EEC2B0FE1B70092FB33 /* HistoryRowView.swift */,
-				A7AE4F022B10E6F00092FB33 /* ExerciseRowView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -568,6 +577,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7AE4EA62B0CE95B0092FB33 /* HomeViewModel.swift in Sources */,
+				A7AE4F0B2B113CB10092FB33 /* PlanExerciseRowView.swift in Sources */,
 				A7AE4ED12B0E88C30092FB33 /* Exercise.swift in Sources */,
 				A73666892B0C16E200A679FD /* HomeView.swift in Sources */,
 				A7AE4EAE2B0CF5020092FB33 /* RootViewModel.swift in Sources */,
@@ -578,6 +588,7 @@
 				A73666442B0BE00D00A679FD /* GymPartnerApp.swift in Sources */,
 				A7AE4EB92B0E3CE20092FB33 /* SharedPlansView.swift in Sources */,
 				A7AE4EF52B0FF1830092FB33 /* DayActionBarView.swift in Sources */,
+				A7AE4F0D2B113D1B0092FB33 /* PlanExercise.swift in Sources */,
 				A73666802B0BFB6E00A679FD /* AuthView.swift in Sources */,
 				A7AE4EA82B0CEFEE0092FB33 /* ManagersProvider.swift in Sources */,
 				A7AE4EC22B0E43E10092FB33 /* IconTextField.swift in Sources */,
@@ -589,6 +600,7 @@
 				A7AE4EB32B0E3BEB0092FB33 /* MyPlansView.swift in Sources */,
 				A7AE4ED52B0E93D60092FB33 /* ExerciseManager.swift in Sources */,
 				A7AE4EC82B0E6A050092FB33 /* SignInViewModel.swift in Sources */,
+				A7AE4F0F2B113E120092FB33 /* NumberStepper.swift in Sources */,
 				A736668E2B0C1A5800A679FD /* SettingsView.swift in Sources */,
 				A7AE4EDC2B0F7D8E0092FB33 /* BrowseMyPlansView.swift in Sources */,
 				A7AE4F052B10EB1F0092FB33 /* ConfirmationModal.swift in Sources */,
