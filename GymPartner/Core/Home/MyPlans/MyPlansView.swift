@@ -10,6 +10,7 @@ import SwiftUI
 enum MyPlansState {
     case browse
     case createInitial
+    case selectExercise
 }
 
 struct MyPlansView: View {
@@ -24,6 +25,8 @@ struct MyPlansView: View {
                 BrowseMyPlansView()
             case .createInitial:
                 CreatePlanView()
+            case .selectExercise:
+                SelectExerciseView()
             }
         }
     }

@@ -11,8 +11,8 @@ struct BrowseMyPlansView: View {
     @EnvironmentObject var homeVM: HomeViewModel
     
     var testPlan = Plan(id: "1", name: "Full Body Workout", days: [
-        PlanDay(id: "1", name: "Day 1"),
-        PlanDay(id: "2", name: "Day 2"),
+        PlanDay(name: "Day 1"),
+        PlanDay(name: "Day 2"),
     ], tags: [.beginner, .strength])
     
     var body: some View {

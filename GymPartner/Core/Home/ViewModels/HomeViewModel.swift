@@ -10,7 +10,8 @@ import Foundation
 final class HomeViewModel: ObservableObject {
     @Published var myPlansState: MyPlansState = .browse
     @Published var newPlanName: String = ""
-
+    @Published var days: [PlanDay] = []
+    @Published var selectedDay: PlanDay?
     init() {
         
     }
@@ -18,5 +19,61 @@ final class HomeViewModel: ObservableObject {
     func resetViews() {
         myPlansState = .browse
         newPlanName = ""
+    }
+    
+    func dayIsSelected(day: PlanDay) -> Bool {
+        guard let selectedDay = selectedDay else { return false }
+        return selectedDay.id == day.id
+    }
+    
+    func noExercisesInSelectedDay() -> Bool {
+        guard let selectedDay = selectedDay else { return false }
+        return selectedDay.exercises.isEmpty
+    }
+    
+    func addNewDay(name: String) {
+        days.append(PlanDay(name: name))
+        selectedDay = days.last
+    }
+    
+    func renameDay(day: PlanDay?, newName: String) {
+        guard let day = day else { return }
+        if let index = days.firstIndex(where: { planDay in
+            planDay.id == day.id
+        }) {
+            var updatedDay = days[index]
+            updatedDay.name = newName
+            days[index] = updatedDay
+        }
+    }
+    
+    func deleteDay(day: PlanDay?) {
+        guard let day = day else { return }
+        days.removeAll(where: { planDay in
+            planDay.id == day.id
+        })
+        selectedDay = days.last
+    }
+    
+    func addExercise(day: PlanDay?, exercise: Exercise) {
+        guard let day = day else { return }
+        if let index = days.firstIndex(where: { planDay in
+            planDay.id == day.id
+        }) {
+            var updatedDay = days[index]
+            updatedDay.exercises.append(exercise)
+            days[index] = updatedDay
+        }
+    }
+    
+    func deleteExercise(day: PlanDay?, exerciseIndex: Int) {
+        guard let day = day else { return }
+        if let index = days.firstIndex(where: { planDay in
+            planDay.id == day.id
+        }) {
+            var updatedDay = days[index]
+            updatedDay.exercises.remove(at: exerciseIndex)
+            days[index] = updatedDay
+        }
     }
 }

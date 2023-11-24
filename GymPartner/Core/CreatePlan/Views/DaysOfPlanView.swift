@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct DaysOfPlanView: View {
-    @Binding var days: [String]
-    @State var selectedDay: String?
+    @EnvironmentObject var homeVM: HomeViewModel
+    @Binding var showNewDayModal: Bool
     var body: some View {
         ScrollViewReader { scrollProxy in
             VStack {
                 HStack {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 16) {
-                            ForEach(days.indices, id: \.self) { index in
-                                dayText(day: days[index])
+                            ForEach(homeVM.days.indices, id: \.self) { index in
+                                dayText(day: homeVM.days[index])
                             }
                         }
                         .padding(.vertical)
                     }
                     Button {
-                        newDay(name: "day \(days.count + 1)")
+                        homeVM.addNewDay(name: "day \(homeVM.days.count + 1)")
                     } label: {
                         newDayButton
                     }
@@ -32,58 +32,73 @@ struct DaysOfPlanView: View {
                 .padding(.leading)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 Spacer()
+                if homeVM.noExercisesInSelectedDay() {
+                    noExercisesMessage
+                }
             }
-            .onChange(of: days, perform: { newValue in
+            .onChange(of: homeVM.days, perform: { newValue in
                 withAnimation() {
-                    scrollProxy.scrollTo(days.count - 1)
+                    scrollProxy.scrollTo(homeVM.days.last?.id ?? "0")
                 }
             })
-            .onAppear() {
-                if let firstDay = days.first {
-                    selectedDay = firstDay
-                }
-            }
         }
     }
 }
 
 struct DaysOfPlanView_Previews: PreviewProvider {
     static var previews: some View {
-        DaysOfPlanView(days: .constant(["Day 1", "Day 2"]))
+        DaysOfPlanView(showNewDayModal: .constant(false))
+            .environmentObject(dev.homeViewModel)
     }
 }
 
 extension DaysOfPlanView {
     private var newDayButton: some View {
-        Text("New day")
-            .padding(.vertical, 8)
-            .padding(.horizontal)
-            .foregroundColor(.white)
-            .background(Color.theme.accent)
-            .cornerRadius(16, corners: [.topLeft, .bottomLeft])
+        Button {
+            showNewDayModal = true
+        } label: {
+            Text("New day")
+                .padding(.vertical, 8)
+                .padding(.horizontal)
+                .foregroundColor(.white)
+                .background(Color.theme.accent)
+                .cornerRadius(16, corners: [.topLeft, .bottomLeft])
+        }
     }
     
-    private func dayText(day: String) -> some View {
-        Text(day)
-            .id(day)
-            .foregroundColor(day == selectedDay ? .primary : .theme.secondaryText)
+    private var noExercisesMessage: some View {
+        VStack {
+            Spacer()
+            Button {
+                homeVM.myPlansState = .selectExercise
+            } label: {
+                HStack {
+                    Image(systemName: "plus")
+                    Text("Let's add some exercises")
+                    .font(.system(size: 16, weight: .semibold))
+                }
+                .padding()
+                .background(Color(.systemGray5))
+                .cornerRadius(16, corners: .allCorners)
+            }
+            Spacer()
+        }
+    }
+    
+    private func dayText(day: PlanDay) -> some View {
+        Text(day.name)
+            .id(day.id)
+            .foregroundColor(homeVM.dayIsSelected(day: day) ? .primary : .theme.secondaryText)
             .onTapGesture {
                 withAnimation() {
-                    selectedDay = day
+                    homeVM.selectedDay = day
                 }
             }
             .overlay(
                 Rectangle()
-                    .foregroundColor(day == selectedDay ? .theme.accent : .clear)
+                    .foregroundColor(homeVM.dayIsSelected(day: day) ? .theme.accent : .clear)
                     .frame(height: 2)
                     .offset(x: 0, y: 20)
             )
-    }
-    
-    private func newDay(name: String) {
-        days.append(name)
-        if let lastDay = days.last {
-            selectedDay = lastDay
-        }
     }
 }

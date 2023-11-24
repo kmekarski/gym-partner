@@ -55,7 +55,6 @@ struct TagsButtonsGroupView: View {
                         } else {
                             withAnimation() {
                                 selectedTags.append(tag.rawValue)
-                                print(selectedTags.count)
                             }
                         }
                     }

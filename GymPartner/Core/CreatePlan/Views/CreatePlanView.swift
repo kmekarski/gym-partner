@@ -12,9 +12,9 @@ struct CreatePlanView: View {
     @EnvironmentObject var homeVM: HomeViewModel
     
     @State var selectedTags: [String] = []
-    @State var days: [String] = []
     @State var exercises: [Exercise] = []
     @State var showNewDayModal: Bool = false
+    @State var showRejectPlanModal: Bool = false
     @State var newDayName: String = ""
     var body: some View {
         GeometryReader { geometry in
@@ -28,19 +28,22 @@ struct CreatePlanView: View {
                             .foregroundColor(.red)
                             .opacity(selectedTags.count > 3 ? 1.0 : 0.0)
                     Divider()
-                    if days.isEmpty {
+                    if homeVM.days.isEmpty {
                         noDaysMessage
                     } else {
-                        DaysOfPlanView(days: $days)
+                        DaysOfPlanView(showNewDayModal: $showNewDayModal)
                     }
                     Spacer()
                 }
                 .padding()
-                if !days.isEmpty {
+                if !homeVM.days.isEmpty {
                     DayActionBarView()
                 }
                 ModalWithTextField(title: "New day", placeholder: "Day name", text: $newDayName, isShowing: $showNewDayModal) {
-                    days.append(newDayName)
+                    homeVM.addNewDay(name: newDayName)
+                }
+                ConfirmationModal(title: "Confirm", message: "Are you sure you want to reject this workout plan? Provided data will be lost.", isShowing: $showRejectPlanModal) {
+                    homeVM.myPlansState = .browse
                 }
             }
         }
@@ -59,34 +62,10 @@ struct CreatePlanView_Previews: PreviewProvider {
 }
 
 extension CreatePlanView {
-    private var temp: some View {
-        VStack {
-            HStack {
-                Text("Create plan")
-                Button("Back") {
-                    homeVM.myPlansState = .browse
-                }
-            }
-            
-            TextField("Exercise name or body part", text: $createPlanVM.exerciseQuery)
-            Picker("Body part", selection: $createPlanVM.selectedBodyPart) {
-                ForEach(BodyPart.allCases, id: \.self) { bodyPart in
-                    Text(bodyPart.rawValue.capitalized)
-                }
-            }
-            VStack {
-                ForEach(createPlanVM.filteredExercises) { exercise in
-                    Text(exercise.name)
-                }
-            }
-        }
-        .padding()
-    }
-    
     private var header: some View {
         HStack {
             Button {
-                
+                showRejectPlanModal = true
             } label: {
                 RoundedSquareButton(systemName: "xmark", border: true)
                     .frame(width: 50, height: 50)
@@ -108,6 +87,7 @@ extension CreatePlanView {
     
     private var noDaysMessage: some View {
         VStack {
+            Spacer()
             Button {
                 showNewDayModal = true
             } label: {
@@ -120,14 +100,7 @@ extension CreatePlanView {
                 .background(Color(.systemGray5))
                 .cornerRadius(16, corners: .allCorners)
             }
+            Spacer()
         }
-        .frame(width: 250, height: 350)
-
-    }
-    
-    private var noExercisesMessage: some View {
-        Text("Lets add some exercises")
-            .frame(width: 250, height: 350)
-            .font(.system(size: 20, weight: .semibold))
     }
 }

@@ -21,5 +21,4 @@ enum BodyPart: String, CaseIterable {
     case quads = "quads"
     case hamstrings = "hamstrings"
     case calves = "calves"
-    case yoga = "yoga"
 }

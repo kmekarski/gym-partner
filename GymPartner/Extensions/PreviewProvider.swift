@@ -26,16 +26,16 @@ final class DeveloperPreview {
     let settingsViewModel: SettingsViewModel
     let createPlanViewModel: CreatePlanViewModel
     
-    private let days1 = [
-        PlanDay(id: "1", name: "Day 1"),
-        PlanDay(id: "2", name: "Day 3"),
-        PlanDay(id: "3", name: "Day 4")
+    let days1 = [
+        PlanDay(name: "Day 1"),
+        PlanDay(name: "Day 2"),
+        PlanDay(name: "Day 3")
     ]
-    private let days2 = [
-        PlanDay(id: "1", name: "Day 1")
+    let days2 = [
+        PlanDay(name: "Day 1")
     ]
-    private let tags1: [PlanTag] = [.expert, .strength, .cardio]
-    private let tags2: [PlanTag] = [.beginner, .cardio]
+    let tags1: [PlanTag] = [.expert, .strength, .cardio]
+    let tags2: [PlanTag] = [.beginner, .cardio]
     
     let workoutInHistory = WorkoutInHistory(
         id: "1",

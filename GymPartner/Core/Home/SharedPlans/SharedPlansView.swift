@@ -10,8 +10,8 @@ import SwiftUI
 struct SharedPlansView: View {
     
     var testPlan = Plan(id: "1", name: "Full Body Workout", days: [
-        PlanDay(id: "1", name: "Day 1"),
-        PlanDay(id: "2", name: "Day 2"),
+        PlanDay(name: "Day 1"),
+        PlanDay(name: "Day 2")
     ], tags: [.beginner, .strength], authorName: "someUser123", authorPhotoUrl: "https://fastly.picsum.photos/id/567/96/96.jpg?hmac=2t58DxDsk0q6eabOjL-zmUFQQwyCVq5Ryc7aUzYb5sA")
     
     var body: some View {
