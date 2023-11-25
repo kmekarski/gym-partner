@@ -20,8 +20,8 @@ struct Plan: Identifiable, Codable {
         name: String,
         days: [PlanDay],
         tags: [PlanTag],
-        authorName: String? = nil,
-        authorPhotoUrl: String? = nil) {
+        authorName: String?,
+        authorPhotoUrl: String?) {
             self.id = id
             self.name = name
             self.days = days

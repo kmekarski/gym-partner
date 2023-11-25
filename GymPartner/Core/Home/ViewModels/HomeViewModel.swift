@@ -13,10 +13,10 @@ final class HomeViewModel: ObservableObject {
     @Published var days: [PlanDay] = []
     @Published var tags: [PlanTag] = []
     @Published var selectedDay: PlanDay?
+    @Published var userPlans: [Plan] = []
     
     private var userManager: UserManager
     private var authManager: AuthManager
-    
     
     init(userManager: UserManager, authManager: AuthManager) {
         self.userManager = userManager
@@ -28,10 +28,20 @@ final class HomeViewModel: ObservableObject {
         newPlanName = ""
     }
     
+    func loadPlans() async throws {
+        let authUser = try authManager.getAuthenticatedUser()
+        if let plans = try await userManager.getUser(userId: authUser.uid).plans {
+            userPlans = plans
+        }
+    }
+    
     func savePlan() async throws {
         let authUser = try authManager.getAuthenticatedUser()
-        let plan = Plan(id: UUID().uuidString, name: newPlanName, days: days, tags: tags)
-        try await userManager.addUserPlan(userId: authUser.uid, plan: plan)
+        if let username = authUser.username,
+           let photoUrl = authUser.photoUrl {
+            let plan = Plan(id: UUID().uuidString, name: newPlanName, days: days, tags: tags, authorName: username, authorPhotoUrl: photoUrl)
+            try await userManager.addUserPlan(userId: authUser.uid, plan: plan)
+        }
     }
     
     func dayIsSelected(day: PlanDay) -> Bool {

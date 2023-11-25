@@ -13,7 +13,7 @@ struct BrowseMyPlansView: View {
     var testPlan = Plan(id: "1", name: "Full Body Workout", days: [
         PlanDay(name: "Day 1"),
         PlanDay(name: "Day 2"),
-    ], tags: [.beginner, .strength])
+    ], tags: [.beginner, .strength], authorName: "some user", authorPhotoUrl: "")
     
     var body: some View {
         ScrollView {
@@ -34,29 +34,25 @@ struct BrowseMyPlansView: View {
                 VStack {
                     sectionHeader("Your workout plans:")
                     VStack(spacing: 10) {
-                        PlanRowView(plan: testPlan)
-                            .background(Color(.systemGray5))
-                        .cornerRadius(10)
-                        PlanRowView(plan: testPlan)
-                            .background(Color(.systemGray5))
-                        .cornerRadius(10)
-                        PlanRowView(plan: testPlan)
-                            .background(Color(.systemGray5))
-                        .cornerRadius(10)
-                        PlanRowView(plan: testPlan)
-                            .background(Color(.systemGray5))
-                        .cornerRadius(10)
-                        PlanRowView(plan: testPlan)
-                            .background(Color(.systemGray5))
-                        .cornerRadius(10)
-                        PlanRowView(plan: testPlan)
-                            .background(Color(.systemGray5))
-                        .cornerRadius(10)
+                        ForEach(homeVM.userPlans) { plan in
+                            PlanRowView(plan: plan)
+                                .background(Color(.systemGray5))
+                            .cornerRadius(10)
+                        }
                     }
                 }
                 .padding(.vertical)
             }
             .padding()
+        }
+        .onAppear() {
+            Task {
+                do {
+                    try await homeVM.loadPlans()
+                } catch {
+                    print(error)
+                }
+            }
         }
     }
 }
