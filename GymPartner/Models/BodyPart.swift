@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum BodyPart: String, CaseIterable {
+enum BodyPart: String, CaseIterable, Codable {
     case none = "any body part"
     case chest = "chest"
     case bicep = "bicep"

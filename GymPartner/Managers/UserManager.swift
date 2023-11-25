@@ -33,5 +33,15 @@ final class UserManager {
     func getUser(userId: String) async throws -> DBUser {
         try await userDocument(userId: userId).getDocument(as: DBUser.self)
     }
+    
+    func addUserPlan(userId: String, plan: Plan) async throws {
+        guard let planData = try? encoder.encode(plan) else {
+            throw URLError(.badURL)
+        }
+        let data: [String:Any] = [
+            DBUser.CodingKeys.plans.rawValue: FieldValue.arrayUnion([planData])
+        ]
+        try await userDocument(userId: userId).updateData(data)
+    }
 }
 

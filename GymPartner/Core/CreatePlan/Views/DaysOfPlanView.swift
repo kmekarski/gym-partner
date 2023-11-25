@@ -80,7 +80,6 @@ extension DaysOfPlanView {
                 ForEach(homeVM.selectedDayExercises().indices, id: \.self) { index in
                     if let selectedDay = homeVM.selectedDay {
                         PlanExerciseRowView(day: selectedDay, exerciseIndex: index)
-                            .animation(.none, value: homeVM.selectedDay)
                     }
                 }
             }
@@ -91,6 +90,7 @@ extension DaysOfPlanView {
     private var noExercisesMessage: some View {
         VStack {
             Spacer()
+            Text("or make it a rest day!").padding(.vertical, 8).opacity(0)
             Button {
                 homeVM.myPlansState = .selectExercise
             } label: {
@@ -103,8 +103,22 @@ extension DaysOfPlanView {
                 .background(Color(.systemGray5))
                 .cornerRadius(16, corners: .allCorners)
             }
+            Text("or make it a rest day!").padding(.vertical, 8)
+            spacer
             Spacer()
         }
+    }
+    
+    private var spacer: some View {
+        Text("space")
+            .foregroundColor(.clear)
+            .overlay(
+                Rectangle()
+                    .foregroundColor(.clear)
+                    .frame(height: 2)
+                    .offset(x: 0, y: 20)
+            )
+            .padding(.vertical)
     }
     
     private func dayText(day: PlanDay) -> some View {

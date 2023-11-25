@@ -9,8 +9,8 @@ import Foundation
 
 final class SettingsViewModel: ObservableObject {
     
-    var authManager: AuthManager
     @Published var authProviders: [AuthProviderOption] = []
+    private var authManager: AuthManager
     
     init(authManager: AuthManager) {
         self.authManager = authManager

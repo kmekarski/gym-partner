@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PlanTag: String, CaseIterable {
+enum PlanTag: String, CaseIterable, Codable {
     case cardio
     case beginner
     case intermediate

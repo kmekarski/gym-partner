@@ -10,8 +10,6 @@ import SwiftUI
 struct CreatePlanView: View {
     @EnvironmentObject var createPlanVM: CreatePlanViewModel
     @EnvironmentObject var homeVM: HomeViewModel
-    
-    @State var selectedTags: [String] = []
     @State var exercises: [Exercise] = []
     @State var showNewDayModal: Bool = false
     @State var showRejectPlanModal: Bool = false
@@ -23,13 +21,12 @@ struct CreatePlanView: View {
                     header
                     RegularTextField(title: "Plan name", text: $homeVM.newPlanName)
                         .padding(.bottom)
-                    TagsButtonsGroupView(geometry: geometry, selectedTags: $selectedTags)
+                    TagsButtonsGroupView(geometry: geometry, selectedTags: $homeVM.tags)
                     Text("Only 3 tags can be selected")
                         .foregroundColor(.red)
-                        .opacity(selectedTags.count > 3 ? 1.0 : 0.0)
+                        .opacity(homeVM.tags.count > 3 ? 1.0 : 0.0)
                     Divider()
                     if homeVM.days.isEmpty {
-                        spacer
                         noDaysMessage
                     } else {
                         DaysOfPlanView(showNewDayModal: $showNewDayModal)
@@ -75,7 +72,14 @@ extension CreatePlanView {
                 .multilineTextAlignment(.center)
             Spacer()
             Button {
-                
+                Task {
+                    do {
+                        try await homeVM.savePlan()
+                        homeVM.myPlansState = .browse
+                    } catch {
+                        print(error)
+                    }
+                }
             } label: {
                 RoundedSquareButton(systemName: "checkmark", border: true)
                     .frame(width: 50, height: 50)
@@ -101,17 +105,5 @@ extension CreatePlanView {
             }
             Spacer()
         }
-    }
-    
-    private var spacer: some View {
-        Text("space")
-            .foregroundColor(.clear)
-            .overlay(
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(height: 2)
-                    .offset(x: 0, y: 20)
-            )
-            .padding(.vertical)
     }
 }

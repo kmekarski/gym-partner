@@ -13,6 +13,7 @@ struct DBUser: Codable {
     let email: String?
     let photoUrl: String?
     let dateCreated: Date?
+    let plans: [Plan]?
     
     init(auth: AuthUser) {
         self.userId = auth.uid
@@ -20,6 +21,7 @@ struct DBUser: Codable {
         self.email = auth.email
         self.photoUrl = auth.photoUrl
         self.dateCreated = Date()
+        self.plans = []
     }
     
     init(auth: AuthUser, username: String) {
@@ -28,19 +30,22 @@ struct DBUser: Codable {
         self.email = auth.email
         self.photoUrl = auth.photoUrl
         self.dateCreated = Date()
+        self.plans = []
     }
     
     init(userId: String,
          username: String? = nil,
          email: String? = nil,
          photoUrl: String? = nil,
-         dateCreated: Date? = nil
+         dateCreated: Date? = nil,
+         plans: [Plan] = []
     ) {
         self.userId = userId
         self.username = username
         self.email = email
         self.photoUrl = photoUrl
         self.dateCreated = dateCreated
+        self.plans = plans
     }
     
     enum CodingKeys: String, CodingKey {
@@ -49,6 +54,7 @@ struct DBUser: Codable {
         case email = "email"
         case photoUrl = "photo_url"
         case dateCreated = "date_created"
+        case plans = "plans"
     }
     
     func encode(to encoder: Encoder) throws {
@@ -58,6 +64,7 @@ struct DBUser: Codable {
         try container.encodeIfPresent(self.email, forKey: .email)
         try container.encodeIfPresent(self.photoUrl, forKey: .photoUrl)
         try container.encodeIfPresent(self.dateCreated, forKey: .dateCreated)
+        try container.encodeIfPresent(self.plans, forKey: .plans)
     }
     
     init(from decoder: Decoder) throws {
@@ -67,5 +74,6 @@ struct DBUser: Codable {
         self.email = try container.decodeIfPresent(String.self, forKey: .email)
         self.photoUrl = try container.decodeIfPresent(String.self, forKey: .photoUrl)
         self.dateCreated = try container.decodeIfPresent(Date.self, forKey: .dateCreated)
+        self.plans = try container.decodeIfPresent([Plan].self, forKey: .plans)
     }
 }

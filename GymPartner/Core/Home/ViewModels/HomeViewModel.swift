@@ -11,14 +11,27 @@ final class HomeViewModel: ObservableObject {
     @Published var myPlansState: MyPlansState = .browse
     @Published var newPlanName: String = ""
     @Published var days: [PlanDay] = []
+    @Published var tags: [PlanTag] = []
     @Published var selectedDay: PlanDay?
-    init() {
-        
+    
+    private var userManager: UserManager
+    private var authManager: AuthManager
+    
+    
+    init(userManager: UserManager, authManager: AuthManager) {
+        self.userManager = userManager
+        self.authManager = authManager
     }
     
     func resetViews() {
         myPlansState = .browse
         newPlanName = ""
+    }
+    
+    func savePlan() async throws {
+        let authUser = try authManager.getAuthenticatedUser()
+        let plan = Plan(id: UUID().uuidString, name: newPlanName, days: days, tags: tags)
+        try await userManager.addUserPlan(userId: authUser.uid, plan: plan)
     }
     
     func dayIsSelected(day: PlanDay) -> Bool {
@@ -89,6 +102,7 @@ final class HomeViewModel: ObservableObject {
         case minus
         case plus
     }
+    
     func changeNumberOfSets(day: PlanDay?, exerciseIndex: Int, sign: Sign) {
         guard let day = day else { return }
         if let index = days.firstIndex(where: { planDay in
@@ -139,5 +153,5 @@ final class HomeViewModel: ObservableObject {
             selectedDay = days[index]
         }
     }
-
+    
 }

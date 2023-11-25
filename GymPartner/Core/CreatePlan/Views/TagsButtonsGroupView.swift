@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TagsButtonsGroupView: View {
     let geometry: GeometryProxy
-    @Binding var selectedTags: [String]
+    @Binding var selectedTags: [PlanTag]
     
     var body: some View {
         self.generateContent(in: geometry)
@@ -46,15 +46,15 @@ struct TagsButtonsGroupView: View {
                         return result
                     })
                     .onTapGesture {
-                        if selectedTags.contains(tag.rawValue) {
+                        if selectedTags.contains(tag) {
                             withAnimation() {
                                 selectedTags.removeAll { selectedTag in
-                                    selectedTag == tag.rawValue
+                                    selectedTag == tag
                                 }
                             }
                         } else {
                             withAnimation() {
-                                selectedTags.append(tag.rawValue)
+                                selectedTags.append(tag)
                             }
                         }
                     }
@@ -63,6 +63,6 @@ struct TagsButtonsGroupView: View {
     }
     
     func item(for tag: PlanTag) -> some View {
-        PlanTagView(tag: tag, isSelected: selectedTags.contains(tag.rawValue))
+        PlanTagView(tag: tag, isSelected: selectedTags.contains(tag))
     }
 }
