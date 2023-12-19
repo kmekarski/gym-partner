@@ -10,6 +10,7 @@ import SwiftUI
 struct CreatePlanView: View {
     @EnvironmentObject var createPlanVM: CreatePlanViewModel
     @EnvironmentObject var homeVM: HomeViewModel
+    var isEditMode: Bool = false
     @State var exercises: [Exercise] = []
     @State var showNewDayModal: Bool = false
     @State var showRejectPlanModal: Bool = false
@@ -67,7 +68,7 @@ extension CreatePlanView {
                     .frame(width: 50, height: 50)
             }
             Spacer()
-            Text("Create a workout plan")
+            Text(isEditMode ? "Edit a workout Plan" : "Create a workout plan")
                 .font(.system(size: 32, weight: .semibold))
                 .multilineTextAlignment(.center)
             Spacer()

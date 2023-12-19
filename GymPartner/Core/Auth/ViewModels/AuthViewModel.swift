@@ -22,7 +22,7 @@ final class AuthViewModel: ObservableObject {
         let helper = await GoogleSignInHelper()
         let tokens = try await helper.signIn()
         let authData = try await authManager.signInWithGoogle(tokens: tokens)
-        try userManager.createNewUser(user: DBUser(auth: authData))
+        try await userManager.createNewUser(user: DBUser(auth: authData))
     }
     
     func signInEmail(email: String, password: String) async throws {
@@ -32,7 +32,7 @@ final class AuthViewModel: ObservableObject {
     func signUpEmail(username: String, email: String, password: String) async throws {
         let authData = try await authManager.createUser(email: email, password: password)
         let user = DBUser(auth: authData, username: username)
-        try userManager.createNewUser(user: user)
+        try await userManager.createNewUser(user: user)
     }
     
     func getAuthenticatedUser() async throws -> DBUser {

@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import Combine
 import FirebaseAuth
 
 final class AuthManager: ObservableObject {
     
-    @Published var userData: AuthUser?
+    var userPublisher = PassthroughSubject<DBUser, Error>()
     
     func getAuthenticatedUser() throws -> AuthUser {
         guard let user = Auth.auth().currentUser else {
@@ -39,6 +40,12 @@ final class AuthManager: ObservableObject {
         return providers
     }
     
+    func publishSigningIn() throws {
+        let authUser = try getAuthenticatedUser()
+        print(authUser)
+        userPublisher.send(DBUser(auth: authUser))
+    }
+    
 
 }
 
@@ -49,14 +56,13 @@ extension AuthManager {
     func createUser(email: String, password: String) async throws -> AuthUser {
         let authUserResult = try await Auth.auth().createUser(withEmail: email, password: password)
         let authUser = AuthUser(user: authUserResult.user)
-        self.userData = authUser
         return authUser
     }
     @discardableResult
     func signIn(email: String, password: String) async throws -> AuthUser {
         let authUserResult = try await Auth.auth().signIn(withEmail: email, password: password)
         let authUser = AuthUser(user: authUserResult.user)
-        self.userData = authUser
+        try publishSigningIn()
         return authUser
     }
     
@@ -95,7 +101,7 @@ extension AuthManager {
     func signInWithCredential(authCredential: AuthCredential) async throws -> AuthUser {
         let authUserResult = try await Auth.auth().signIn(with: authCredential)
         let authUser = AuthUser(user: authUserResult.user)
-        self.userData = authUser
+        try publishSigningIn()
         return authUser
     }
 }

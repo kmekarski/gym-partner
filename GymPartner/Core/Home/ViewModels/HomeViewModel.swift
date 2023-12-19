@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 final class HomeViewModel: ObservableObject {
     @Published var myPlansState: MyPlansState = .browse
@@ -15,12 +16,38 @@ final class HomeViewModel: ObservableObject {
     @Published var selectedDay: PlanDay?
     @Published var userPlans: [Plan] = []
     
+    @Published var tokens: Set<AnyCancellable> = []
+    
     private var userManager: UserManager
     private var authManager: AuthManager
     
     init(userManager: UserManager, authManager: AuthManager) {
         self.userManager = userManager
         self.authManager = authManager
+        
+        observeUserUpdates()
+    }
+    
+    private func observeUserUpdates() {
+        authManager.userPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                print("Handle \(completion) for error and finished subscription.")
+            } receiveValue: { authUser in
+                let userId = authUser.userId
+                Task {
+                    do {
+                        let user = try await self.userManager.getUser(userId: userId)
+                        if let plans = user.plans {
+                            self.userPlans = plans
+                        }
+                    } catch {
+                        throw error
+                    }
+                }
+                
+            }
+            .store(in: &tokens)
     }
     
     func resetViews() {

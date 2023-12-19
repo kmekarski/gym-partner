@@ -20,6 +20,7 @@ struct GymPartnerApp: App {
     let homeViewModel: HomeViewModel
     let settingsViewModel: SettingsViewModel
     let createPlanViewModel: CreatePlanViewModel
+    let viewPlanViewModel: ViewPlanViewModel
     
     init() {
         FirebaseApp.configure()
@@ -31,6 +32,7 @@ struct GymPartnerApp: App {
         authViewModel = AuthViewModel(authManager: authManager, userManager: userManager)
         settingsViewModel = SettingsViewModel(authManager: authManager)
         createPlanViewModel = CreatePlanViewModel(exerciseManager: exerciseManager)
+        viewPlanViewModel = ViewPlanViewModel()
     }
     
     var body: some Scene {
@@ -41,6 +43,7 @@ struct GymPartnerApp: App {
                 .environmentObject(authViewModel)
                 .environmentObject(settingsViewModel)
                 .environmentObject(createPlanViewModel)
+                .environmentObject(viewPlanViewModel)
         }
     }
 }

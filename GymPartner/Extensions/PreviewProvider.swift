@@ -25,6 +25,7 @@ final class DeveloperPreview {
     let homeViewModel: HomeViewModel
     let settingsViewModel: SettingsViewModel
     let createPlanViewModel: CreatePlanViewModel
+    let viewPlanViewModel: ViewPlanViewModel
     
     let benchPressExercise = Exercise(id: "1", name: "Bench press", bodyParts: [.chest, .tricep])
     let squatExercise = Exercise(id: "2", name: "Squat", bodyParts: [.legs, .glutes, .quads])
@@ -48,15 +49,6 @@ final class DeveloperPreview {
     var plans: [Plan]
     
     private init() {
-        authManager = ManagersProvider.provideAuthManager()
-        userManager = ManagersProvider.provideUserManager()
-        exerciseManager = ManagersProvider.provideExerciseManager()
-        rootViewModel = RootViewModel(authManager: authManager)
-        homeViewModel = HomeViewModel(userManager: userManager, authManager: authManager)
-        authViewModel = AuthViewModel(authManager: authManager, userManager: userManager)
-        settingsViewModel = SettingsViewModel(authManager: authManager)
-        createPlanViewModel = CreatePlanViewModel(exerciseManager: exerciseManager)
-        
         planExercises = [
             PlanExercise(exercise: benchPressExercise),
             PlanExercise(exercise: squatExercise),
@@ -71,6 +63,17 @@ final class DeveloperPreview {
             Plan(id: "1", name: "Intermediate Full Body Workout", days: planDays, tags: tags1, authorName: "someGuy123", authorPhotoUrl: "https://fastly.picsum.photos/id/936/96/96.jpg?hmac=d1amt6UQzVBoq3zj1HI-5Sv4sJLogXpzqiLSuwbmBEE"),
             Plan(id: "2", name: "Some other plan", days: planDays, tags: tags2, authorName: "otherGuy789", authorPhotoUrl: "https://fastly.picsum.photos/id/567/96/96.jpg?hmac=2t58DxDsk0q6eabOjL-zmUFQQwyCVq5Ryc7aUzYb5sA")
         ]
+        
+        authManager = ManagersProvider.provideAuthManager()
+        userManager = ManagersProvider.provideUserManager()
+        exerciseManager = ManagersProvider.provideExerciseManager()
+        rootViewModel = RootViewModel(authManager: authManager)
+        homeViewModel = HomeViewModel(userManager: userManager, authManager: authManager)
+        authViewModel = AuthViewModel(authManager: authManager, userManager: userManager)
+        settingsViewModel = SettingsViewModel(authManager: authManager)
+        createPlanViewModel = CreatePlanViewModel(exerciseManager: exerciseManager)
+        viewPlanViewModel = ViewPlanViewModel()
+        viewPlanViewModel.selectPlan(plans[0])
     }
     
 }

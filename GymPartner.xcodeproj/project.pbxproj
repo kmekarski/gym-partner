@@ -77,6 +77,9 @@
 		A7AE4F0B2B113CB10092FB33 /* PlanExerciseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4F0A2B113CB10092FB33 /* PlanExerciseRowView.swift */; };
 		A7AE4F0D2B113D1B0092FB33 /* PlanExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4F0C2B113D1B0092FB33 /* PlanExercise.swift */; };
 		A7AE4F0F2B113E120092FB33 /* NumberStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE4F0E2B113E120092FB33 /* NumberStepper.swift */; };
+		A7DFDC982B323DAB00DDC709 /* ThickerDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDC972B323DAB00DDC709 /* ThickerDivider.swift */; };
+		A7DFDC9C2B323E4200DDC709 /* PlanDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDC9B2B323E4200DDC709 /* PlanDetailsView.swift */; };
+		A7DFDCA32B32436F00DDC709 /* ViewPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDCA22B32436F00DDC709 /* ViewPlanViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,6 +147,9 @@
 		A7AE4F0A2B113CB10092FB33 /* PlanExerciseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanExerciseRowView.swift; sourceTree = "<group>"; };
 		A7AE4F0C2B113D1B0092FB33 /* PlanExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanExercise.swift; sourceTree = "<group>"; };
 		A7AE4F0E2B113E120092FB33 /* NumberStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberStepper.swift; sourceTree = "<group>"; };
+		A7DFDC972B323DAB00DDC709 /* ThickerDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThickerDivider.swift; sourceTree = "<group>"; };
+		A7DFDC9B2B323E4200DDC709 /* PlanDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailsView.swift; sourceTree = "<group>"; };
+		A7DFDCA22B32436F00DDC709 /* ViewPlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPlanViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +224,7 @@
 		A73666612B0BE52C00A679FD /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A7DFDC992B323E2000DDC709 /* ViewPlan */,
 				A7AE4EC92B0E81B80092FB33 /* CreatePlan */,
 				A7AE4EAF2B0CF52E0092FB33 /* Root */,
 				A73666652B0BE54200A679FD /* Auth */,
@@ -483,12 +490,46 @@
 		A7AE4EDF2B0F82BB0092FB33 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A7DFDC962B323D8600DDC709 /* Dividers */,
 				A7AE4EE02B0F82D00092FB33 /* PlanRowView.swift */,
 				A7AE4EE22B0F892A0092FB33 /* PlanTagView.swift */,
 				A7AE4EEA2B0FA2680092FB33 /* UserPlanRowView.swift */,
 				A7AE4EEC2B0FE1B70092FB33 /* HistoryRowView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		A7DFDC962B323D8600DDC709 /* Dividers */ = {
+			isa = PBXGroup;
+			children = (
+				A7DFDC972B323DAB00DDC709 /* ThickerDivider.swift */,
+			);
+			path = Dividers;
+			sourceTree = "<group>";
+		};
+		A7DFDC992B323E2000DDC709 /* ViewPlan */ = {
+			isa = PBXGroup;
+			children = (
+				A7DFDC9D2B323F0C00DDC709 /* ViewModels */,
+				A7DFDC9A2B323E2C00DDC709 /* Views */,
+			);
+			path = ViewPlan;
+			sourceTree = "<group>";
+		};
+		A7DFDC9A2B323E2C00DDC709 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A7DFDC9B2B323E4200DDC709 /* PlanDetailsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A7DFDC9D2B323F0C00DDC709 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A7DFDCA22B32436F00DDC709 /* ViewPlanViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -584,6 +625,7 @@
 				A73666832B0BFCB100A679FD /* Utilities.swift in Sources */,
 				A7AE4EEB2B0FA2680092FB33 /* UserPlanRowView.swift in Sources */,
 				A7AE4E9A2B0CD8970092FB33 /* UserManager.swift in Sources */,
+				A7DFDCA32B32436F00DDC709 /* ViewPlanViewModel.swift in Sources */,
 				A7AE4EE92B0F90EE0092FB33 /* PlanTag.swift in Sources */,
 				A73666442B0BE00D00A679FD /* GymPartnerApp.swift in Sources */,
 				A7AE4EB92B0E3CE20092FB33 /* SharedPlansView.swift in Sources */,
@@ -605,6 +647,7 @@
 				A7AE4EDC2B0F7D8E0092FB33 /* BrowseMyPlansView.swift in Sources */,
 				A7AE4F052B10EB1F0092FB33 /* ConfirmationModal.swift in Sources */,
 				A7AE4EFF2B1001060092FB33 /* DaysOfPlanView.swift in Sources */,
+				A7DFDC9C2B323E4200DDC709 /* PlanDetailsView.swift in Sources */,
 				A7AE4EE12B0F82D00092FB33 /* PlanRowView.swift in Sources */,
 				A736666F2B0BE74F00A679FD /* AuthManager.swift in Sources */,
 				A7AE4EF72B0FF1BF0092FB33 /* File.swift in Sources */,
@@ -612,6 +655,7 @@
 				A7AE4EF32B0FE3180092FB33 /* Int16.swift in Sources */,
 				A7AE4EC42B0E69BF0092FB33 /* SignUpViewModel.swift in Sources */,
 				A7AE4E9D2B0CD8E40092FB33 /* DBUser.swift in Sources */,
+				A7DFDC982B323DAB00DDC709 /* ThickerDivider.swift in Sources */,
 				A7AE4EBD2B0E41150092FB33 /* SignUpView.swift in Sources */,
 				A7AE4EE52B0F90D00092FB33 /* Plan.swift in Sources */,
 				A7AE4EEF2B0FE21C0092FB33 /* WorkoutInHistory.swift in Sources */,

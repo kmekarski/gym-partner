@@ -39,7 +39,7 @@ struct PlanExerciseRowView: View {
                     Text(exercise.exercise.bodyPartsString())
                         .font(.system(size: 16, weight: .regular))
                         .frame(width: .infinity, alignment: .leading)
-                Divider()
+                ThickerDivider()
                     .padding(.vertical, 8)
                 HStack {
                     VStack{

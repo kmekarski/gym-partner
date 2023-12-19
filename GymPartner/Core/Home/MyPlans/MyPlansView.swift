@@ -9,6 +9,7 @@ import SwiftUI
 
 enum MyPlansState {
     case browse
+    case viewPlanDetails
     case createInitial
     case selectExercise
 }
@@ -23,6 +24,8 @@ struct MyPlansView: View {
             switch homeVM.myPlansState {
             case .browse:
                 BrowseMyPlansView()
+            case .viewPlanDetails:
+                PlanDetailsView()
             case .createInitial:
                 CreatePlanView()
             case .selectExercise:
@@ -38,5 +41,6 @@ struct MyPlansView_Previews: PreviewProvider {
             .environmentObject(dev.homeViewModel)
             .environmentObject(dev.authViewModel)
             .environmentObject(dev.createPlanViewModel)
+            .environmentObject(dev.viewPlanViewModel)
     }
 }

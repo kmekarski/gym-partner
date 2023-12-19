@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BrowseMyPlansView: View {
     @EnvironmentObject var homeVM: HomeViewModel
+    @EnvironmentObject var viewPlanVM: ViewPlanViewModel
     
     var testPlan = Plan(id: "1", name: "Full Body Workout", days: [
         PlanDay(name: "Day 1"),
@@ -25,6 +26,10 @@ struct BrowseMyPlansView: View {
                 VStack {
                     sectionHeader("Your recent workout:")
                     PlanRowView(plan: testPlan)
+                        .onTapGesture {
+                            viewPlanVM.selectPlan(testPlan)
+                            homeVM.myPlansState = .viewPlanDetails
+                        }
                 }
                 .padding(.vertical)
 
@@ -45,15 +50,6 @@ struct BrowseMyPlansView: View {
             }
             .padding()
         }
-        .onAppear() {
-            Task {
-                do {
-                    try await homeVM.loadPlans()
-                } catch {
-                    print(error)
-                }
-            }
-        }
     }
 }
 
@@ -61,6 +57,7 @@ struct BrowseMyPlansView_Previews: PreviewProvider {
     static var previews: some View {
         BrowseMyPlansView()
             .environmentObject(dev.homeViewModel)
+            .environmentObject(dev.viewPlanViewModel)
     }
 }
 
